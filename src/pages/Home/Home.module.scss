@@ -1,0 +1,49 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  margin-bottom: rem-calc(40);
+  z-index: 100;
+}
+
+.mainContent {
+  max-width: rem-calc(1170);
+  margin: 0 auto;
+  .title {
+    display: flex;
+    flex-direction: column;
+    gap: rem-calc(20);
+    margin-top: rem-calc(140);
+
+    .boxAndTag {
+      display: flex;
+      gap: rem-calc(16);
+      align-items: center;
+      .box {
+        width: rem-calc(20);
+        height: rem-calc(40);
+        background-color: $Secondary2;
+        border-radius: rem-calc(4);
+      }
+      span {
+        @include typography('title-16PX', 'semibold');
+        color: $Secondary2;
+      }
+    }
+    h3 {
+      @include typography('heading-36PX', 'semibold');
+      color: $Text2;
+    }
+  }
+
+  // .productsGrid {
+  //   display: grid;
+  //   grid-template-columns: repeat(auto-fill, minmax(rem-calc(270), 1fr));
+  //   gap: rem-calc(30);
+  // }
+
+  .productsGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem-calc(30);
+  }
+}

@@ -1,0 +1,20 @@
+@use '../variables' as *;
+@use '../functions' as *;
+@use '../mixins' as *;
+
+:root {
+  font-family: $font-primary;
+  @include typography('title-16PX', 'regular');
+  background-color: $BG;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  // padding: 0 135px;
+  // display: grid;
+  // grid-template-columns: repeat(12, 1fr);
+  // gap: 30px;
+  // box-sizing: border-box;
+}

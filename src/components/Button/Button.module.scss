@@ -1,0 +1,33 @@
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  // height: rem-calc(45);
+  padding: rem-calc(16) rem-calc(48);
+  border-radius: rem-calc(4);
+  text-align: center;
+  color: $Text;
+  @include typography('title-16PX', 'medium');
+
+  &.primary {
+    background-color: $Button2;
+
+    &:disabled {
+      // background-color: #d9dcdd;
+    }
+  }
+
+  &.secondary {
+    background-color: $Button1;
+
+    &:disabled {
+      // color: #d8d8d8;
+      // border: 1px solid #d8d8d8;
+    }
+  }
+
+  &:disabled {
+    pointer-events: none;
+  }
+}

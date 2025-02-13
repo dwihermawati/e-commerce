@@ -1,0 +1,56 @@
+header {
+  width: 100%;
+  background-color: $Button;
+  margin-bottom: rem-calc(24);
+
+  .topHeader {
+    width: rem-calc(1440);
+    height: rem-calc(48);
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin: 0 auto;
+    border: none;
+    // border: 1px solid white;
+    padding-right: rem-calc(136);
+
+    .wrapText {
+      display: flex;
+      gap: rem-calc(231);
+      // margin-right: rem-calc(136);
+      // border: 1px solid white;
+
+      .text {
+        display: flex;
+        gap: rem-calc(8);
+        color: $Text;
+        padding-left: rem-calc(10);
+
+        h3 {
+          @include typography('title-14PX', 'regular');
+        }
+
+        span a {
+          color: $Text;
+          @include typography('title-14PX', 'semibold');
+          text-decoration: underline;
+
+          &:hover {
+            color: $Button1;
+          }
+        }
+      }
+    }
+
+    select {
+      background-color: $Button;
+      border: none;
+      color: $Text;
+      gap: rem-calc(8);
+      cursor: pointer;
+      &:hover {
+        color: $Button1;
+      }
+    }
+  }
+}

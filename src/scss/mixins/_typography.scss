@@ -1,0 +1,37 @@
+@use 'sass:map';
+
+// prettier-ignore
+$sizes: (
+  "heading-110PX": (font-family: '$font-primary', font-size: rem-calc(110), line-height: rem-calc(115), letter-spacing: -0.03em),
+  "heading-90PX": (font-family: '$font-primary', font-size: rem-calc(90), line-height: rem-calc(98), letter-spacing: -0.05em),
+  "heading-64PX": (font-family: '$font-primary', font-size: rem-calc(64), line-height: rem-calc(68), letter-spacing: -0.05em),
+  "heading-54PX": (font-family: '$font-primary', font-size: rem-calc(54), line-height: rem-calc(64), letter-spacing: -0.06em),
+  "heading-48PX": (font-family: '$font-primary', font-size: rem-calc(48), line-height: rem-calc(52), letter-spacing: -0.04em),
+  "heading-36PX": (font-family: '$font-primary', font-size: rem-calc(36), line-height: rem-calc(30), letter-spacing: -0.04em),
+  "heading-32PX": (font-family: '$font-primary', font-size: rem-calc(32), line-height: rem-calc(30), letter-spacing: -0.04em),
+  "heading-24PX": (font-family: '$font-primary', font-size: rem-calc(24), line-height: rem-calc(24), letter-spacing: -0.03em),
+  "heading-20PX": (font-family: '$font-primary', font-size: rem-calc(20), line-height: rem-calc(20), letter-spacing: -0.03em),
+  "title-24PX": (font-family: '$font-secondary', font-size: rem-calc(24), line-height: rem-calc(32)),
+  "title-20PX": (font-family: '$font-secondary', font-size: rem-calc(20), line-height: rem-calc(28)),
+  "title-16PX": (font-family: '$font-secondary', font-size: rem-calc(16), line-height: rem-calc(24)),
+  "title-14PX": (font-family: '$font-secondary', font-size: rem-calc(14), line-height: rem-calc(21)),
+  "title-12PX": (font-family: '$font-secondary', font-size: rem-calc(12), line-height: rem-calc(18)),
+);
+
+$weights: (
+  'regular': 400,
+  'medium': 500,
+  'semibold': 600,
+  'bold': 700,
+);
+
+@mixin typography($size, $weight) {
+  @if map.has-key($sizes, $size) and map.has-key($weights, $weight) {
+    @each $key, $value in map.get($sizes, $size) {
+      #{$key}: $value;
+    }
+    font-weight: map.get($weights, $weight);
+  } @else {
+    @warn 'Invalid size specified or weight specified: #{$size}, #{$weight}';
+  }
+}

@@ -1,0 +1,61 @@
+.headBanner {
+  display: flex;
+  gap: rem-calc(61);
+  margin: 0 auto;
+  width: rem-calc(1170);
+  // margin-top: rem-calc(56);
+
+  .banner {
+    width: rem-calc(892);
+    height: rem-calc(344);
+  }
+
+  .categories {
+    display: flex;
+    flex-direction: column;
+    gap: rem-calc(16);
+    width: rem-calc(217);
+    justify-content: space-between;
+
+    .categoryItem {
+      cursor: pointer;
+      display: block;
+
+      .categoryName {
+        @include typography('title-16PX', 'regular');
+        color: $Text2;
+        display: flex;
+        justify-content: space-between;
+        &:hover {
+          color: $Secondary2;
+        }
+      }
+
+      img {
+        transition: transform 0.3 ease;
+        transform: rotate(0deg);
+      }
+
+      .subCategories {
+        display: flex;
+        flex-direction: column;
+        gap: rem-calc(8);
+        margin: rem-calc(8) 0 0 rem-calc(32);
+
+        a {
+          @include typography('title-12PX', 'regular');
+          color: $Text2;
+          &:hover {
+            color: $Secondary2;
+          }
+        }
+      }
+    }
+
+    .open {
+      img {
+        transform: rotate(90deg);
+      }
+    }
+  }
+}

@@ -1,0 +1,225 @@
+.header {
+  background-color: $BG;
+  // border-bottom: 1px solid $Text1;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  .navbar {
+    height: rem-calc(57);
+    max-width: rem-calc(1170);
+    margin: 0 auto;
+    display: flex;
+    gap: rem-calc(70);
+    justify-content: space-between;
+    align-items: center;
+    padding-top: rem-calc(40);
+    padding-bottom: rem-calc(40);
+
+    .logoNav {
+      display: flex;
+      gap: rem-calc(90);
+      align-items: center;
+
+      .iconLogo {
+        height: rem-calc(57);
+        cursor: pointer;
+
+        &:hover {
+          scale: (1.1);
+        }
+      }
+
+      ul {
+        display: flex;
+        gap: rem-calc(48);
+        li {
+          position: relative;
+          display: inline-block;
+          padding-bottom: rem-calc(3);
+
+          &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: $Text1;
+            transition: width 0.3s ease-in-out;
+          }
+
+          &:hover::before {
+            width: 100%;
+          }
+
+          a {
+            @include typography('title-16PX', 'regular');
+            &:hover {
+              color: $Secondary2;
+            }
+          }
+        }
+      }
+    }
+
+    .headerActions {
+      display: flex;
+      gap: rem-calc(24);
+      align-items: center;
+
+      .searchBar {
+        display: flex;
+        gap: rem-calc(34);
+        background-color: $Secondary;
+        border-radius: rem-calc(4);
+        align-items: center;
+        justify-content: center;
+        padding: rem-calc(7) rem-calc(12) rem-calc(7) rem-calc(20);
+        &:hover {
+          border: 1px solid $Secondary2;
+        }
+
+        input {
+          background-color: transparent;
+          @include typography('title-12PX', 'regular');
+          color: $Text2;
+          border: none;
+          outline: none;
+        }
+
+        img {
+          cursor: pointer;
+          &:hover {
+            background-color: $Secondary2;
+          }
+        }
+      }
+
+      .action {
+        display: flex;
+        gap: rem-calc(16);
+        align-items: center;
+        cursor: pointer;
+
+        .wishlistIcon {
+          position: relative;
+          @include typography('title-12PX', 'regular');
+          color: $Text;
+        }
+
+        .cartIcon {
+          position: relative;
+          @include typography('title-12PX', 'regular');
+          color: $Text;
+        }
+
+        .wrapIconUser {
+          position: relative;
+          display: inline-block;
+          width: rem-calc(32);
+          height: rem-calc(32);
+          border-radius: 50%;
+          text-align: center;
+
+          .dropdownUser {
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.04);
+            width: rem-calc(225);
+            height: rem-calc(208);
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            right: 0;
+            border-radius: rem-calc(4);
+            padding: rem-calc(18) rem-calc(12) rem-calc(10) rem-calc(20);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-20px) scale(0.8);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            backdrop-filter: blur(50px);
+
+            ul {
+              display: flex;
+              flex-direction: column;
+              gap: rem-calc(13);
+              justify-content: center;
+
+              li {
+                display: flex;
+                gap: rem-calc(16);
+                align-items: center;
+
+                a {
+                  color: $Text;
+                  @include typography('title-14PX', 'regular');
+                  &:hover {
+                    color: $Button1;
+                  }
+                }
+
+                @keyframes bounce {
+                  0% {
+                    transform: translateY(0);
+                  }
+                  30% {
+                    transform: translateY(-5px);
+                  }
+                  50% {
+                    transform: translateY(3px);
+                  }
+                  70% {
+                    transform: translateY(-2px);
+                  }
+                  100% {
+                    transform: translateY(0);
+                  }
+                }
+
+                &:hover {
+                  animation: bounce 0.7s ease;
+                }
+              }
+            }
+          }
+
+          .userIcon {
+            position: relative;
+            z-index: 10;
+          }
+
+          &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background-color: $Secondary2;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s ease, height 0.3s ease;
+            z-index: 5;
+          }
+
+          &:hover {
+            &::after {
+              width: 120%;
+              height: 120%;
+            }
+
+            .dropdownUser {
+              opacity: 1;
+              transform: translateY(0) scale(1);
+              visibility: visible;
+              transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+          }
+        }
+      }
+    }
+  }
+  .hoverWishlist {
+    display: none;
+  }
+  .hoverCart {
+    display: none;
+  }
+}
