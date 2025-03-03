@@ -1,0 +1,176 @@
+.footer {
+  width: 100%;
+  background-color: $Button;
+
+  .footerContainer {
+    max-width: rem-calc(1440);
+    min-height: rem-calc(440);
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+
+    .footerContent {
+      display: flex;
+      margin: rem-calc(80) auto rem-calc(60);
+      gap: rem-calc(87);
+      justify-content: space-between;
+      // border: 1px solid white;
+      flex-wrap: wrap;
+      padding: 0 rem-calc(10);
+
+      .frame1 {
+        display: flex;
+        flex-direction: column;
+        gap: rem-calc(16);
+        .headerFrame1 {
+          display: flex;
+          flex-direction: column;
+          gap: rem-calc(24);
+          .logoTitle {
+            display: flex;
+            flex-direction: column;
+            gap: rem-calc(24);
+            img {
+              width: rem-calc(119.59);
+              cursor: pointer;
+
+              &:hover {
+                scale: (1.1);
+              }
+            }
+            a {
+              @include typography('title-20PX', 'medium');
+              color: $Text;
+              &:hover {
+                color: $Button1;
+              }
+            }
+          }
+
+          p {
+            @include typography('title-16PX', 'regular');
+            color: $Text;
+          }
+        }
+
+        .inputIcon {
+          width: rem-calc(217);
+          display: flex;
+          gap: rem-calc(32);
+          border: 1.5px solid $Text;
+          border-radius: rem-calc(4);
+          justify-content: space-between;
+          input {
+            @include typography('title-16PX', 'regular');
+            color: $Text;
+            opacity: 40%;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            width: rem-calc(130);
+            padding: rem-calc(12) 0 rem-calc(12) rem-calc(16);
+          }
+          img {
+            cursor: pointer;
+            margin-right: rem-calc(15);
+          }
+        }
+      }
+      .frame2 {
+        display: flex;
+        flex-direction: column;
+        gap: rem-calc(24);
+        h3 {
+          @include typography('title-20PX', 'medium');
+          color: $Text;
+        }
+        .address {
+          display: flex;
+          flex-direction: column;
+          gap: rem-calc(16);
+          p,
+          a {
+            @include typography('title-16PX', 'regular');
+            color: $Text;
+          }
+          a:hover {
+            color: $Button1;
+          }
+        }
+      }
+      .frame3,
+      .frame4 {
+        display: flex;
+        flex-direction: column;
+        gap: rem-calc(24);
+        h3 {
+          @include typography('title-20PX', 'medium');
+          color: $Text;
+        }
+        ul {
+          display: flex;
+          flex-direction: column;
+          gap: rem-calc(16);
+          li {
+            a {
+              @include typography('title-16PX', 'regular');
+              color: $Text;
+              &:hover {
+                color: $Button1;
+              }
+            }
+          }
+        }
+      }
+
+      .frame5 {
+        display: flex;
+        flex-direction: column;
+        gap: rem-calc(24);
+        .wrapDownload {
+          display: flex;
+          flex-direction: column;
+          gap: rem-calc(24);
+          h3 {
+            @include typography('title-20PX', 'medium');
+            color: $Text;
+          }
+          .mapIconDownload {
+            display: flex;
+            flex-direction: column;
+            gap: rem-calc(8);
+            p {
+              @include typography('title-12PX', 'medium');
+              color: $Text;
+              opacity: 70%;
+            }
+            img {
+              width: rem-calc(198);
+            }
+          }
+        }
+        .iconSosmed {
+          display: flex;
+          gap: rem-calc(24);
+          cursor: pointer;
+        }
+      }
+    }
+    .copyright {
+      padding-top: rem-calc(16);
+      border-top: 1px solid $Primary;
+      opacity: 40%;
+      .copyrightContent {
+        display: flex;
+        gap: rem-calc(16);
+        opacity: 60%;
+        justify-content: center;
+        align-items: center;
+        p {
+          @include typography('title-16PX', 'regular');
+          color: $Primary;
+        }
+      }
+    }
+  }
+}

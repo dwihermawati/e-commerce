@@ -9,3 +9,13 @@ export const fetchProducts = async () => {
     throw err;
   }
 };
+
+export const fetchProductById = async (id: number) => {
+  try {
+    const resp = await customAxios.get(`/products/${id}`);
+    return resp.data;
+  } catch (err) {
+    console.error('Error fetching products by ID:', err);
+    throw err;
+  }
+};

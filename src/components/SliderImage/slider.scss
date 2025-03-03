@@ -1,0 +1,38 @@
+.slick-slider {
+  height: rem-calc(344);
+  position: relative;
+  .slick-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: rem-calc(11);
+    position: absolute;
+    bottom: 10px;
+    li {
+      width: rem-calc(12);
+      height: rem-calc(12);
+      border-radius: 50%;
+      background-color: $Primary;
+      opacity: 50%;
+      border: none;
+      transition: background-color 0.3s, width 0.3s;
+
+      &:before {
+        content: '';
+      }
+      &:hover {
+        background-color: $Secondary2;
+        border: rem-calc(2) solid $Primary;
+      }
+
+      &.slick-active {
+        width: rem-calc(14);
+        height: rem-calc(14);
+        border-radius: 50%;
+        background-color: $Secondary2;
+        border: rem-calc(2) solid $Primary;
+        opacity: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,123 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  margin-bottom: rem-calc(40);
+  z-index: 100;
+}
+
+.mainContent {
+  max-width: rem-calc(1170);
+  margin: rem-calc(80) auto rem-calc(140);
+  padding: 0 rem-calc(10);
+
+  .link {
+    display: flex;
+    gap: rem-calc(16);
+    margin: rem-calc(80) auto;
+
+    .linkStyle {
+      @include typography('title-14PX', 'regular');
+      color: $Text2;
+      opacity: 50%;
+    }
+    .tag {
+      @include typography('title-14PX', 'regular');
+      color: $Text2;
+    }
+  }
+
+  .contentWrap {
+    display: flex;
+    gap: rem-calc(70);
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+
+    .boxImageDetail {
+      width: rem-calc(670);
+      max-height: rem-calc(570);
+      background-color: $Secondary;
+      border-radius: rem-calc(4);
+      box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+      margin: 0 auto;
+      .imageDetail {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .detail {
+      display: flex;
+      flex-direction: column;
+      gap: rem-calc(24);
+      width: rem-calc(400);
+      max-width: rem-calc(670);
+      flex: 1 1 0;
+      margin: 0 auto;
+
+      .containProductDetail {
+        display: flex;
+        flex-direction: column;
+        gap: rem-calc(16);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+
+        h3 {
+          @include typography('heading-24PX', 'semibold');
+          color: $Text2;
+        }
+        .price {
+          @include typography('heading-24PX', 'regular');
+          color: $Text2;
+        }
+        .descriptionProduct {
+          @include typography('title-14PX', 'regular');
+          color: $Text2;
+          margin: rem-calc(8) 0 rem-calc(24);
+        }
+      }
+      .action {
+        display: flex;
+        gap: rem-calc(17);
+        flex-wrap: wrap;
+
+        .wishlist {
+          width: rem-calc(40);
+          height: rem-calc(40);
+          border: 1px solid rgba(0, 0, 0, 0.5);
+          border-radius: rem-calc(4);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+  .relatedProducts {
+    display: flex;
+    flex-direction: column;
+    gap: rem-calc(60);
+    margin-top: rem-calc(80);
+
+    .boxAndTag {
+      display: flex;
+      gap: rem-calc(16);
+      align-items: center;
+      .box {
+        width: rem-calc(20);
+        height: rem-calc(40);
+        background-color: $Secondary2;
+        border-radius: rem-calc(4);
+      }
+      .tagRelatedProduct {
+        @include typography('title-16PX', 'semibold');
+        color: $Secondary2;
+      }
+    }
+    .productsGrid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: rem-calc(30);
+    }
+  }
+}

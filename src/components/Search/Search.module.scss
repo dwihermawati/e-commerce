@@ -1,0 +1,63 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  margin-bottom: rem-calc(40);
+  z-index: 100;
+}
+
+.mainContent {
+  max-width: rem-calc(1170);
+  margin: rem-calc(80) auto rem-calc(140);
+  padding: 0 rem-calc(10);
+
+  .link {
+    display: flex;
+    gap: rem-calc(16);
+    margin: rem-calc(80) auto rem-calc(40);
+
+    .linkStyle {
+      @include typography('title-14PX', 'regular');
+      color: $Text2;
+      opacity: 50%;
+    }
+    .linkStyleActive {
+      @include typography('title-14PX', 'regular');
+      color: $Text2;
+    }
+  }
+
+  .title {
+    @include typography('title-16PX', 'bold');
+    color: $Text2;
+    .searchQuery {
+      @include typography('title-20PX', 'medium');
+      color: $Secondary2;
+    }
+    margin-bottom: rem-calc(20);
+  }
+
+  .productsGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem-calc(30);
+
+    .noFoundProduct {
+      display: flex;
+      flex-direction: column;
+      gap: rem-calc(20);
+      align-items: center;
+      width: 100%;
+      padding: rem-calc(30) 0;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+
+      .title {
+        @include typography('title-24PX', 'bold');
+        color: $Secondary2;
+        .searchQuery {
+          @include typography('title-20PX', 'medium');
+          color: $Text2;
+        }
+      }
+    }
+  }
+}

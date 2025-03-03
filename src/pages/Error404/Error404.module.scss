@@ -1,0 +1,46 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  margin-bottom: rem-calc(40);
+  z-index: 100;
+}
+
+.mainContent {
+  max-width: rem-calc(1170);
+  margin: rem-calc(80) auto rem-calc(140);
+  padding: 0 rem-calc(10);
+
+  .link {
+    display: flex;
+    gap: rem-calc(16);
+    margin: rem-calc(80) auto rem-calc(140);
+
+    .linkStyle {
+      @include typography('title-14PX', 'regular');
+      color: $Text2;
+      opacity: 50%;
+    }
+    .linkStyleActive {
+      @include typography('title-14PX', 'regular');
+      color: $Text2;
+    }
+  }
+
+  .notFound {
+    display: flex;
+    flex-direction: column;
+    gap: rem-calc(40);
+    text-align: center;
+    h1 {
+      @include typography('heading-110PX', 'medium');
+      color: #000000;
+    }
+    p {
+      @include typography('title-16PX', 'regular');
+      color: $Text2;
+    }
+    .button {
+      margin-top: rem-calc(40);
+    }
+  }
+}

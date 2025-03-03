@@ -1,0 +1,72 @@
+.quantity {
+  display: block;
+  .content {
+    width: rem-calc(159);
+    height: rem-calc(44);
+    display: flex;
+    gap: rem-calc(-1);
+
+    .decrease {
+      display: flex;
+      width: rem-calc(40);
+      height: rem-calc(44);
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      border-radius: rem-calc(4) 0 0 rem-calc(4);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      .decreaseButton {
+        width: rem-calc(16);
+        border: rem-calc(1.5) solid $Button;
+      }
+      .disabled {
+        border-color: $Text1;
+      }
+    }
+
+    .increase {
+      display: flex;
+      width: rem-calc(40);
+      height: rem-calc(44);
+      background-color: $Secondary2;
+      border-radius: 0 rem-calc(4) rem-calc(4) 0;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .input {
+      width: rem-calc(80);
+      height: rem-calc(44);
+      border-top: 1px solid rgba(0, 0, 0, 0.5);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      input {
+        outline: none;
+        border: none;
+        width: rem-calc(40);
+        @include typography('title-20PX', 'medium');
+        appearance: none;
+        text-align: center;
+      }
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      input[type='number'] {
+        appearance: textfield;
+      }
+    }
+  }
+
+  .error {
+    @include typography('title-14PX', 'regular');
+    color: $Secondary2;
+    margin-top: rem-calc(5);
+  }
+}

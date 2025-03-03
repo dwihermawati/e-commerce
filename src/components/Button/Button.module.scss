@@ -3,8 +3,8 @@
   display: inline-flex;
   align-items: center;
   box-sizing: border-box;
-  // height: rem-calc(45);
-  padding: rem-calc(16) rem-calc(48);
+  height: rem-calc(45);
+  padding: 0 rem-calc(48);
   border-radius: rem-calc(4);
   text-align: center;
   color: $Text;
@@ -12,18 +12,28 @@
 
   &.primary {
     background-color: $Button2;
+    border: none;
+
+    &:hover {
+      background-color: $HoverButton;
+    }
 
     &:disabled {
-      // background-color: #d9dcdd;
+      background-color: #d9dcdd;
+      border: none;
     }
   }
 
   &.secondary {
     background-color: $Button1;
+  }
 
-    &:disabled {
-      // color: #d8d8d8;
-      // border: 1px solid #d8d8d8;
+  &.optional {
+    background-color: none;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    color: $Text2;
+    &:hover {
+      color: $Text1;
     }
   }
 

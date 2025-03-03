@@ -1,0 +1,14 @@
+.rateCount {
+  display: flex;
+  gap: rem-calc(8);
+  align-items: center;
+  .rate {
+    color: #ffad33;
+    border-radius: rem-calc(1.4);
+  }
+  .count {
+    @include typography('title-14PX', 'semibold');
+    color: $Text2;
+    opacity: 50%;
+  }
+}

@@ -8,8 +8,7 @@ export const TopHeader: React.FC = () => {
         <div className={styles.wrapText}>
           <div className={styles.text}>
             <h3 className={styles.tittle}>
-              Summer Sale For All Swim Suits And Free Express Delivery - OFF
-              50%!
+              Summer Sale For All Products And Free Express Delivery - OFF 50%!
             </h3>
             <span>
               <a href='#home'>ShopNow</a>

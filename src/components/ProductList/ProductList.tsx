@@ -1,0 +1,61 @@
+import styles from './ProductList.module.scss';
+import React, { useEffect } from 'react';
+import { CardProduct } from '@/components/CardProduct';
+import { useAppDispatch } from '@/redux/hooks';
+// import { useDialog } from '@/context/DialogContext';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/redux/store';
+import { fetchProductsThunk } from '@/redux/productSlice';
+// import { useToast } from '@/context/ToastContext';
+import { addToCart } from '@/redux/cartSlice';
+import { Loader } from '../Loader';
+import { Product } from '@/types/product';
+import { CartItemProps } from '@/types/cart';
+import { useNavigate } from 'react-router-dom';
+
+export const ProductList: React.FC = () => {
+  const dispatch = useAppDispatch();
+  // const setDialog = useDialog();
+  const { products, loading, error } = useSelector(
+    (state: RootState) => state.products
+  );
+
+  const navigate = useNavigate();
+  // const {addToast} = useToast()
+  useEffect(() => {
+    dispatch(fetchProductsThunk());
+  }, [dispatch]);
+
+  const handleAddToCart = (product: Product) => {
+    const cartItem: CartItemProps = {
+      ...product,
+      quantity: 1,
+      selected: false,
+    };
+    dispatch(addToCart(cartItem));
+
+    // addToast({
+    //   onClose,
+    //   message: 'item successfully added to cart'})
+  };
+
+  const handleGoToDetail = (id: number) => {
+    navigate(`/product/${id}`);
+  };
+
+  if (loading) return <Loader />;
+  if (error) return <p>Error: {error}</p>;
+
+  return (
+    <div className={styles.productsGrid}>
+      {products.map((product: Product) => (
+        <CardProduct
+          key={product.id}
+          {...product}
+          onAddToCart={() => handleAddToCart(product)}
+          onGoToDetail={() => handleGoToDetail(product.id)}
+        />
+      ))}
+    </div>
+  );
+};
