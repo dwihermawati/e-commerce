@@ -6,7 +6,7 @@ import { useAppDispatch } from '@/redux/hooks';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/redux/store';
 import { fetchProductsThunk } from '@/redux/productSlice';
-// import { useToast } from '@/context/ToastContext';
+import { useToast } from '@/context/ToastContext';
 import { addToCart } from '@/redux/cartSlice';
 import { Loader } from '../Loader';
 import { Product } from '@/types/product';
@@ -20,8 +20,10 @@ export const ProductList: React.FC = () => {
     (state: RootState) => state.products
   );
 
+  const { addToast } = useToast();
+
   const navigate = useNavigate();
-  // const {addToast} = useToast()
+
   useEffect(() => {
     dispatch(fetchProductsThunk());
   }, [dispatch]);
@@ -34,9 +36,11 @@ export const ProductList: React.FC = () => {
     };
     dispatch(addToCart(cartItem));
 
-    // addToast({
-    //   onClose,
-    //   message: 'item successfully added to cart'})
+    addToast({
+      variant: 'information',
+      message: `Success add to cart for ${product.title} `,
+      onClose: () => {},
+    });
   };
 
   const handleGoToDetail = (id: number) => {

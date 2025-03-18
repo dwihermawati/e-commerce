@@ -1,0 +1,42 @@
+.checkoutForm {
+  width: rem-calc(470);
+
+  .inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: rem-calc(8);
+    width: 100%;
+    margin-top: rem-calc(32);
+
+    label {
+      @include typography('title-16PX', 'regular');
+      opacity: 40%;
+      &::after {
+        content: '*';
+        color: $Secondary2;
+      }
+    }
+
+    input,
+    textarea {
+      background-color: $Secondary;
+      border-radius: rem-calc(4);
+      border: none;
+      outline: none;
+      height: rem-calc(50);
+      padding: 0 rem-calc(10);
+      @include typography('title-16PX', 'regular');
+    }
+
+    textarea {
+      resize: vertical;
+      overflow-y: auto;
+      padding-top: rem-calc(5);
+    }
+
+    .inputError {
+      @include typography('title-12PX', 'regular');
+      color: $Secondary2;
+    }
+  }
+}

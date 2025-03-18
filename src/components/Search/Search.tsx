@@ -24,18 +24,19 @@ export const Search: React.FC = () => {
     (state: RootState) => state.search.searchQuery
   );
 
-  const backToHome = () => {
-    navigate('/');
+  const queryParams = new URLSearchParams(location.search);
+  const query = queryParams.get('query') || searchQuery;
+
+  const exploreOurProducts = () => {
+    navigate('/#products');
   };
 
   useEffect(() => {
-    if (searchQuery) {
-      dispatch(fetchProductsThunk());
-    }
-  }, [dispatch, searchQuery]);
+    dispatch(fetchProductsThunk());
+  }, [dispatch]);
 
   const filteredProducts = products.filter((product) =>
-    product.title.toLowerCase().includes(searchQuery.toLowerCase())
+    product.title.toLowerCase().includes(query.toLowerCase())
   );
 
   const handleAddToCart = (product: Product) => {
@@ -72,7 +73,7 @@ export const Search: React.FC = () => {
           <span className={styles.searchQuery}>`{searchQuery}`</span>
         </h2>
 
-        <div className={styles.productsGrid}>
+        <div className={styles.productsGridSearch}>
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product) => (
               <CardProduct
@@ -85,14 +86,20 @@ export const Search: React.FC = () => {
           ) : (
             <div className={styles.noFoundProduct}>
               <p className={styles.title}>
-                No products found for {'   '}
-                <span className={styles.searchQuery}>`{searchQuery}`</span>
+                We couldn’t find any products matching your search. Try
+                adjusting your search criteria or explore our products
+                {/* <span className={styles.searchQuery}>`{searchQuery}`</span> */}
               </p>
-              <Button color='primary' onClick={backToHome}>
-                Back To Home
+              <Button color='primary' onClick={exploreOurProducts}>
+                Explore Our Products
               </Button>
             </div>
           )}
+          {/* <div className={styles.boxAndTag}>
+            <div className={styles.box}></div>
+            <span className={styles.tagSearch}>Might You Like</span>
+            <ProductList />
+          </div> */}
         </div>
       </main>
       <Footer />

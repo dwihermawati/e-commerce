@@ -3,6 +3,7 @@ import productReducer from './productSlice';
 import cartReducer from './cartSlice';
 import wishlistReducer from './wishlistSlice';
 import searchReducer from './searchSlice';
+import formReducer from './formSlice';
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     cart: cartReducer,
     wishlist: wishlistReducer,
     search: searchReducer,
+    form: formReducer,
   },
 });
 

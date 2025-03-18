@@ -8,6 +8,7 @@
 .mainContent {
   max-width: rem-calc(1170);
   margin: rem-calc(140) auto;
+  padding: 0 rem-calc(5);
   .products {
     display: flex;
     flex-direction: column;
@@ -16,7 +17,6 @@
       display: flex;
       flex-direction: column;
       gap: rem-calc(20);
-      padding-left: rem-calc(5);
 
       .boxAndTag {
         display: flex;

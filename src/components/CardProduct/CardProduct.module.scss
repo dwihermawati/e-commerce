@@ -6,6 +6,7 @@
   cursor: pointer;
   flex: 1 0 rem-calc(200);
   position: relative;
+  max-width: rem-calc(270);
 
   &:hover {
     transform: translateY(-3px);

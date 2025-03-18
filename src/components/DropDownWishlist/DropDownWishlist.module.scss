@@ -1,0 +1,138 @@
+.wishlistIcon {
+  position: relative;
+
+  .image {
+    cursor: pointer;
+  }
+
+  .emptyItems {
+    width: rem-calc(300);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $BG;
+    position: absolute;
+    top: 35px;
+    right: -10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: rem-calc(8);
+    padding: rem-calc(30) 0;
+
+    img {
+      width: rem-calc(100);
+      height: auto;
+    }
+    p {
+      @include typography('title-14PX', 'medium');
+      color: $Secondary2;
+    }
+  }
+
+  .itemCount {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    @include typography('title-12PX', 'regular');
+    background: $Secondary2;
+    color: $Text;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .triangle {
+    height: 0px;
+    width: 0px;
+    border-bottom: rem-calc(20) solid $BG;
+    border-left: rem-calc(20) solid transparent;
+    border-right: rem-calc(20) solid transparent;
+    position: absolute;
+    top: 20px;
+    right: -9px;
+  }
+
+  .dropdownItemWrapper {
+    max-height: rem-calc(380);
+    width: rem-calc(390);
+    position: absolute;
+    top: 35px;
+    right: -10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: rem-calc(8);
+    background-color: $BG;
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      padding: rem-calc(16);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+      align-items: center;
+      .titleHeader {
+        @include typography('title-16PX', 'semibold');
+      }
+      .link {
+        @include typography('title-14PX', 'semibold');
+        color: $Secondary2;
+        &:hover {
+          color: rgba(219, 68, 68, 0.5);
+        }
+      }
+    }
+
+    .boxScroll {
+      overflow-y: auto;
+      max-height: rem-calc(327);
+      padding-bottom: rem-calc(10);
+      .dropdownItem {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        .list {
+          display: flex;
+          padding: rem-calc(16) rem-calc(16) 0;
+          gap: rem-calc(8);
+          overflow-x: hidden;
+          overflow-y: auto;
+          width: 100%;
+          .boxImage {
+            width: rem-calc(56);
+            height: rem-calc(56);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: rem-calc(4);
+            background-color: $Secondary;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+            }
+          }
+
+          .titleAndPrice {
+            display: flex;
+            justify-content: space-between;
+            text-align: left;
+            width: 100%;
+            .itemTitle {
+              @include typography('title-14PX', 'semibold');
+              max-width: rem-calc(205);
+              overflow-x: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              cursor: pointer;
+            }
+            .itemPrice {
+              @include typography('title-14PX', 'semibold');
+            }
+          }
+        }
+      }
+    }
+  }
+}

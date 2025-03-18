@@ -3,12 +3,13 @@ import { TopHeader } from '@/components/TopHeader';
 import {
   clearCart,
   removeFromCart,
+  selectCartItemCount,
   toggleItemSelected,
   toggleSelectAll,
 } from '@/redux/cartSlice';
 import { useAppDispatch } from '@/redux/hooks';
 import { RootState } from '@/redux/store';
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Header } from '@/components/Header';
 import { Link, useNavigate } from 'react-router-dom';
@@ -16,6 +17,7 @@ import { WishlistButton } from '../WishlistButton';
 import { QuantityInput } from '../QuantityInput';
 import { Button } from '../Button';
 import { Footer } from '../Footer';
+import { useToast } from '@/context/ToastContext';
 // import { useDialog } from '@/context/DialogContext';
 
 export const Cart: React.FC = () => {
@@ -23,12 +25,18 @@ export const Cart: React.FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   // const { setDialog } = useDialog();
+  const { addToast } = useToast();
 
   const handleGoToDetail = (id: number) => {
     navigate(`/product/${id}`);
   };
 
   const handleRemoveItem = (id: number) => {
+    addToast({
+      variant: 'danger',
+      message: 'Item has been removed from cart',
+      onClose: () => {},
+    });
     dispatch(removeFromCart(id));
   };
 
@@ -48,8 +56,20 @@ export const Cart: React.FC = () => {
   //     title: 'Del'
   //   })
   // }
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   const handleClearCart = () => {
+    addToast({
+      variant: 'danger',
+      message: 'All Items has been removed from cart',
+      onClose: () => {},
+    });
     dispatch(clearCart());
   };
 
@@ -74,9 +94,10 @@ export const Cart: React.FC = () => {
   };
 
   const goToShopping = () => {
-    navigate('/');
-    // atur langsung agar mengarah ke productList
+    navigate('/#products');
   };
+
+  const cartItemCount = useSelector(selectCartItemCount);
 
   return (
     <>
@@ -97,7 +118,7 @@ export const Cart: React.FC = () => {
         {cartItems.length === 0 ? (
           <div className={styles.emptyDisplay}>
             <img src='/assets/Images/empty-state-pp.svg' alt='' />
-            <p>Cart is empty</p>
+            <p>Your shopping cart is empty</p>
             <Button color='primary' onClick={goToShopping}>
               Shop Now
             </Button>
@@ -111,12 +132,13 @@ export const Cart: React.FC = () => {
                     type='checkbox'
                     checked={allSelected}
                     onChange={handleSelectAll}
+                    className={styles.checklist}
                   />
-                  <label>Choose All</label>
+                  <label>Choose All ({cartItemCount})</label>
                 </div>
 
                 {allSelected && (
-                  <span className={styles.delete} onClick={handleClearCart}>
+                  <span className={styles.delete} onClick={openModal}>
                     Delete
                   </span>
                 )}
@@ -129,6 +151,7 @@ export const Cart: React.FC = () => {
                       type='checkbox'
                       checked={item.selected}
                       onChange={() => handleSelectItem(item.id)}
+                      className={styles.checklist}
                     />
                     <div className={styles.imgDescription}>
                       <img
@@ -146,7 +169,9 @@ export const Cart: React.FC = () => {
                             <p>{item.category}</p>
                           </div>
                           <div className={styles.priceBox}>
-                            <p className={styles.price}>${item.price}</p>
+                            <p className={styles.price}>
+                              ${item.price.toFixed(2)}
+                            </p>
                           </div>
                         </div>
                         <div className={styles.action}>
@@ -173,7 +198,7 @@ export const Cart: React.FC = () => {
                 <p>Cart Total</p>
                 <div className={styles.total}>
                   <span>Total</span>
-                  <h3>${totalPrice}</h3>
+                  <h3>${totalPrice.toFixed(2)}</h3>
                 </div>
 
                 <Button color='primary' onClick={handleGoToCheckout}>
@@ -185,6 +210,25 @@ export const Cart: React.FC = () => {
         )}
       </main>
       <Footer />
+      {isModalOpen && (
+        <div className={styles.open} onClick={closeModal}>
+          <span className={styles.close} onClick={closeModal}>
+            &times;
+          </span>
+          <div className={styles.dialog}>
+            <h3>Delete {cartItemCount} products?</h3>
+            <p>The product you selected will be removed from the Cart.</p>
+            <div className={styles.buttonDialog}>
+              <Button color='optional' onClick={closeModal}>
+                Cancel
+              </Button>
+              <Button color='primary' onClick={handleClearCart}>
+                Delete
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };

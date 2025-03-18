@@ -94,9 +94,7 @@ export const Footer: React.FC = () => {
         <div className={styles.copyright}>
           <div className={styles.copyrightContent}>
             <img src='/assets/Icons/copyright.svg' alt='copyright' />
-            <p>
-              Copyright Dwi Hermawati Design by Rimel 2022. All right reserved
-            </p>
+            <p>Copyright by Dwi Hermawati. All right reserved</p>
           </div>
         </div>
       </div>

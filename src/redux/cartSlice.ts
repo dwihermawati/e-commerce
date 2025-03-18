@@ -79,6 +79,10 @@ const cartSlice = createSlice({
         selected: action.payload,
       }));
     },
+
+    removeSelectedItems: (state) => {
+      state.items = state.items.filter((item) => !item.selected);
+    },
   },
 });
 
@@ -91,6 +95,12 @@ export const {
   updateQuantity,
   toggleItemSelected,
   toggleSelectAll,
+  removeSelectedItems,
 } = cartSlice.actions;
+
+export const selectCartItems = (state: { cart: CartState }) => state.cart.items;
+
+export const selectCartItemCount = (state: { cart: CartState }) =>
+  state.cart.items.length;
 
 export default cartSlice.reducer;

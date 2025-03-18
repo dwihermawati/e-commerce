@@ -8,7 +8,7 @@
 .mainContent {
   max-width: rem-calc(1170);
   margin: rem-calc(80) auto rem-calc(140);
-  padding: 0 rem-calc(10);
+  padding: 0 rem-calc(5);
 
   .tag {
     display: flex;
@@ -63,7 +63,7 @@
       cursor: pointer;
       flex: 1 0 rem-calc(200);
       position: relative;
-      min-width: rem-calc(250);
+      // min-width: rem-calc(250);
       max-width: rem-calc(270);
       // margin: 0 auto;
 

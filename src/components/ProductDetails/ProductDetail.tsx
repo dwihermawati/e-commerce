@@ -1,5 +1,5 @@
-import { Button } from '@/components/Button';
 import styles from './ProductDetails.module.scss';
+import { Button } from '@/components/Button';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 import { Loader } from '@/components/Loader';
@@ -20,6 +20,7 @@ import { CardProduct } from '../CardProduct';
 import { Product } from '@/types/product';
 import { CartItemProps } from '@/types/cart';
 import { addToCart } from '@/redux/cartSlice';
+import { useToast } from '@/context/ToastContext';
 
 export const ProductDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -36,6 +37,7 @@ export const ProductDetail: React.FC = () => {
   const relatedProducts = products.filter(
     (product) => product.category === categorySame && product.id !== productId
   );
+  const { addToast } = useToast();
 
   const handleAddToCart = (product: Product) => {
     const cartItem: CartItemProps = {
@@ -44,12 +46,18 @@ export const ProductDetail: React.FC = () => {
       selected: false,
     };
     dispatch(addToCart(cartItem));
+
+    addToast({
+      variant: 'information',
+      message: `Success add to cart for ${product.title} `,
+      onClose: () => {},
+    });
   };
 
   const handleGoToCheckout = () => {
     if (productDetail && productDetail.quantity > 0) {
-      navigate('/checkout', {
-        state: { productId, quantity: productId },
+      navigate(`/checkout/${productDetail.title}`, {
+        state: { items: [{ ...productDetail, quantity: 1 }] },
       });
     } else {
       alert('Minimum purchase of this product is 1 item');

@@ -11,9 +11,14 @@ import { useNavigate } from 'react-router-dom';
 import { WishlistProps } from '@/types/wishlistProps';
 import { CartItemProps } from '@/types/cart';
 import { addToCart } from '@/redux/cartSlice';
-import { removeFromWishlist, moveAllToBag } from '@/redux/wishlistSlice';
+import {
+  removeFromWishlist,
+  moveAllToBag,
+  selectWishlistItemCount,
+} from '@/redux/wishlistSlice';
 import { CardProduct } from '../CardProduct';
 import { Product } from '@/types/product';
+import { useToast } from '@/context/ToastContext';
 
 export const Wishlist: React.FC = () => {
   const products = useSelector((state: RootState) => state.products.products);
@@ -38,9 +43,12 @@ export const Wishlist: React.FC = () => {
 
   const backToHome = () => {
     navigate('/');
-    // atur langsung agar mengarah ke productList
+  };
+  const seeAll = () => {
+    navigate('/#products');
   };
 
+  const { addToast } = useToast();
   const handleAddToCart = (product: WishlistProps) => {
     const cartItem: CartItemProps = {
       ...product,
@@ -49,9 +57,11 @@ export const Wishlist: React.FC = () => {
     };
     dispatch(addToCart(cartItem));
 
-    // addToast({
-    //   onClose,
-    //   message: 'item successfully added to cart'})
+    addToast({
+      variant: 'information',
+      message: `Success add to cart for ${product.title}`,
+      onClose: () => {},
+    });
   };
 
   const handleMoveAllToBag = () => {
@@ -63,16 +73,31 @@ export const Wishlist: React.FC = () => {
       };
       dispatch(addToCart(cartItem));
     });
-    dispatch(moveAllToBag());
+    if (wishlistItemCount) {
+      dispatch(moveAllToBag());
+      addToast({
+        variant: 'information',
+        message: `All Products in Wishlist, Success add to cart`,
+        onClose: () => {},
+      });
+    }
   };
 
   const handleRemoveItemWishlist = (id: number) => {
     dispatch(removeFromWishlist(id));
+
+    addToast({
+      variant: 'danger',
+      message: 'Item has been removed from wishlist',
+      onClose: () => {},
+    });
   };
 
   const handleGoToDetail = (id: number) => {
     navigate(`/product/${id}`);
   };
+
+  const wishlistItemCount = useSelector(selectWishlistItemCount);
 
   return (
     <>
@@ -82,8 +107,7 @@ export const Wishlist: React.FC = () => {
       </div>
       <main className={styles.mainContent}>
         <div className={styles.tag}>
-          <span>Wishlist</span>
-          {/* <span>({})</span> */}
+          <span>Wishlist ({wishlistItemCount})</span>
           <div
             className={styles.boxMoveToBagButton}
             onClick={handleMoveAllToBag}
@@ -146,7 +170,7 @@ export const Wishlist: React.FC = () => {
               <div className={styles.box}></div>
               <span className={styles.tagRelatedProduct}>Just For You</span>
             </div>
-            <div className={styles.boxSeeAll} onClick={backToHome}>
+            <div className={styles.boxSeeAll} onClick={seeAll}>
               <p className={styles.buttonSeeAll}>See All</p>
             </div>
           </div>

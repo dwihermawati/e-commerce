@@ -1,0 +1,119 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  margin-bottom: rem-calc(40);
+  z-index: 100;
+}
+
+.mainContent {
+  max-width: rem-calc(1170);
+  margin: rem-calc(80) auto rem-calc(140);
+  padding: 0 rem-calc(5);
+
+  .link {
+    display: flex;
+    gap: rem-calc(16);
+    margin: rem-calc(80) auto;
+
+    .linkStyle {
+      @include typography('title-14PX', 'regular');
+      color: $Text2;
+      opacity: 50%;
+      cursor: pointer;
+    }
+    .tag {
+      @include typography('title-14PX', 'regular');
+      color: $Text2;
+    }
+  }
+  h2 {
+    @include typography('heading-36PX', 'medium');
+    color: $Text2;
+    margin-bottom: rem-calc(16);
+  }
+
+  .content {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: rem-calc(80);
+
+    .descriptionCheckout {
+      display: flex;
+      flex-direction: column;
+      gap: rem-calc(32);
+      width: rem-calc(477);
+      margin-top: rem-calc(32);
+
+      .checkoutItems {
+        display: flex;
+        flex-direction: column;
+        gap: rem-calc(32);
+        width: rem-calc(427);
+
+        .checkoutItem {
+          display: flex;
+          gap: rem-calc(24);
+          width: 100%;
+
+          .boxImage {
+            width: rem-calc(54);
+            height: rem-calc(54);
+            border: none;
+            .imgItemCheckout {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+            }
+          }
+          .titlePrice {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex: 1 1 0;
+            gap: rem-calc(24);
+
+            p {
+              @include typography('title-16PX', 'regular');
+              color: $Text2;
+            }
+            .quantityPrice {
+              display: flex;
+              gap: rem-calc(8);
+            }
+          }
+        }
+      }
+      .totalPrice {
+        display: flex;
+        flex-direction: column;
+        gap: rem-calc(16);
+        // width: 100%;
+        width: rem-calc(427);
+
+        .subTotal {
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+          padding-bottom: rem-calc(16);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+        }
+        .total {
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+
+          .totals {
+            @include typography('title-16PX', 'bold');
+          }
+        }
+      }
+      .buttonAction {
+        display: flex;
+        gap: rem-calc(16);
+        width: 100%;
+      }
+    }
+  }
+}

@@ -30,9 +30,10 @@
 
   &.optional {
     background-color: none;
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    color: $Text2;
+    border: 1px solid rgba(219, 68, 68, 0.5);
+    color: $Secondary2;
     &:hover {
+      opacity: 50%;
       color: $Text1;
     }
   }

@@ -4,8 +4,14 @@ import './slider.scss';
 import styles from './SliderImage.module.scss';
 import React from 'react';
 import Slider from 'react-slick';
+import { useNavigate } from 'react-router-dom';
 
 export const SliderImage: React.FC = () => {
+  const navigate = useNavigate();
+  const goToShopping = () => {
+    navigate('/#products');
+  };
+
   const settings = {
     autoplay: true,
     autoplaySpeed: 2000,
@@ -20,7 +26,7 @@ export const SliderImage: React.FC = () => {
   };
 
   return (
-    <div className={styles.sliderContainer}>
+    <div className={styles.sliderContainer} onClick={goToShopping}>
       <Slider {...settings} className={styles.slider}>
         <div className={styles.images}>
           <img src='/assets/Images/banner1.svg' alt='banner1' />

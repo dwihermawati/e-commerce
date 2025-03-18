@@ -30,10 +30,11 @@ header {
           @include typography('title-14PX', 'regular');
         }
 
-        span a {
+        span {
           color: $Text;
           @include typography('title-14PX', 'semibold');
           text-decoration: underline;
+          cursor: pointer;
 
           &:hover {
             color: $Button1;

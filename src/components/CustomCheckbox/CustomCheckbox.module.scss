@@ -1,0 +1,52 @@
+.checkboxContainer {
+  display: inline-block;
+  // border: 1px solid black;
+  width: rem-calc(24);
+  height: rem-calc(24);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox {
+  display: none;
+}
+
+.checkboxCustom {
+  width: rem-calc(20);
+  height: rem-calc(20);
+  border: 1px solid #bdbdbd;
+  border-radius: rem-calc(5);
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.3s ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 1.3px;
+    left: 6px;
+    width: 6px;
+    height: 12px;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    // transition: all 0.3s ease;
+    // transform: scale(0);
+    // transition: all 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+  }
+
+  // Gaya ketika checkbox dicentang
+  .checkbox:checked + & {
+    background-color: #601feb;
+    border-color: #601feb;
+  }
+
+  .checkbox:checked + &::after {
+    opacity: 1;
+    // transform: scale(1);
+  }
+}

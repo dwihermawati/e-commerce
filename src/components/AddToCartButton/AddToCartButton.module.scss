@@ -1,0 +1,15 @@
+.addToCartButton {
+  width: 100%;
+  height: rem-calc(41);
+  background-color: $Button;
+  border-radius: 0 0 rem-calc(4) rem-calc(4);
+  @include typography('title-16PX', 'medium');
+  color: #ffffff;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: $Secondary2;
+  }
+}

@@ -1,5 +1,5 @@
-import React, { createContext, useState, useContext, useCallback } from 'react';
 import { Toast, ToastProps } from '@/components/Toast';
+import React, { createContext, useState, useContext, useCallback } from 'react';
 
 type ToastContextType = {
   addToast: (toast: ToastProps) => void;
@@ -27,10 +27,12 @@ export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({
       {toasts.map((toast, index) => (
         <Toast
           key={index}
+          variant={toast.variant}
           message={toast.message}
           onClose={() =>
             setToasts((prevToasts) => prevToasts.filter((t) => t !== toast))
           }
+          toastIndex={index}
         />
       ))}
       {children}

@@ -65,7 +65,7 @@
   }
 
   .error {
-    @include typography('title-14PX', 'regular');
+    @include typography('title-12PX', 'regular');
     color: $Secondary2;
     margin-top: rem-calc(5);
   }

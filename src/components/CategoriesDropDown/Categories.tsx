@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { CategoriesType } from '@/types/categories';
 import { categoriesData } from '@/data/dataCategories';
 import { SliderImage } from '../SliderImage';
+import { Link } from 'react-router-dom';
 
 export const CategoriesWithBanner: React.FC = () => {
   return (
@@ -37,7 +38,10 @@ const CategoryItem: React.FC<{ category: CategoriesType }> = ({ category }) => {
       onClick={toogleSubCategories}
     >
       <span className={styles.categoryName}>
-        {category.name}
+        <Link to={`/category/${category.name}`} className={styles.categoryName}>
+          {category.name}
+        </Link>
+
         {category.subCategories && category.subCategories.length > 0 && (
           <img
             className={styles.arrowIcon}
@@ -49,10 +53,14 @@ const CategoryItem: React.FC<{ category: CategoriesType }> = ({ category }) => {
       {isOpen && category.subCategories && (
         <ul className={styles.subCategories}>
           {category.subCategories.map((subCategory) => (
-            <li key={subCategory.id}>
-              <a href='#' onClick={handleLinkClick}>
+            <li key={category.id}>
+              <Link
+                to={`/category/${subCategory.name}`}
+                onClick={handleLinkClick}
+                className={styles.linkSubCategory}
+              >
                 {subCategory.name}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

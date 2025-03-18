@@ -38,7 +38,7 @@
         gap: rem-calc(8);
         margin: rem-calc(8) 0 0 rem-calc(32);
 
-        a {
+        .linkSubCategory {
           @include typography('title-14PX', 'regular');
           color: $Text2;
           &:hover {
