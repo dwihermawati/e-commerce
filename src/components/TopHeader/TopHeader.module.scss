@@ -4,41 +4,41 @@ header {
   margin-bottom: rem-calc(24);
 
   .topHeader {
-    width: rem-calc(1440);
+    width: 100%;
     height: rem-calc(48);
     display: flex;
     justify-content: end;
     align-items: center;
-    margin: 0 auto;
-    border: none;
-    // border: 1px solid white;
-    padding-right: rem-calc(136);
+    text-align: center;
+    gap: rem-calc(231);
+    @media (max-width: 768px) {
+      gap: rem-calc(16);
+    }
 
-    .wrapText {
+    .text {
       display: flex;
-      gap: rem-calc(231);
-      // margin-right: rem-calc(136);
-      // border: 1px solid white;
+      gap: rem-calc(8);
+      color: $Text;
+      align-items: center;
 
-      .text {
-        display: flex;
-        gap: rem-calc(8);
-        color: $Text;
-        padding-left: rem-calc(10);
-
-        h3 {
-          @include typography('title-14PX', 'regular');
+      p {
+        @include typography('title-14PX', 'regular');
+        @media (max-width: 768px) {
+          @include typography('title-12PX', 'regular');
         }
+      }
 
-        span {
-          color: $Text;
-          @include typography('title-14PX', 'semibold');
-          text-decoration: underline;
-          cursor: pointer;
+      span {
+        color: $Text;
+        @include typography('title-14PX', 'semibold');
+        text-decoration: underline;
+        cursor: pointer;
 
-          &:hover {
-            color: $Button1;
-          }
+        &:hover {
+          color: $Button1;
+        }
+        @media (max-width: 768px) {
+          @include typography('title-12PX', 'semibold');
         }
       }
     }
@@ -47,10 +47,14 @@ header {
       background-color: $Button;
       border: none;
       color: $Text;
-      gap: rem-calc(8);
+      @include typography('title-14PX', 'semibold');
       cursor: pointer;
+
       &:hover {
         color: $Button1;
+      }
+      @media (max-width: 768px) {
+        @include typography('title-12PX', 'semibold');
       }
     }
   }
