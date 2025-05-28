@@ -1,30 +1,32 @@
 .navbar {
   position: sticky;
   top: 0;
-  margin-bottom: rem-calc(40);
+  margin-bottom: rem-calc(32);
   z-index: 100;
+  @media (max-width: 1024px) {
+    margin-bottom: 0;
+  }
 }
 
 .mainContent {
-  max-width: rem-calc(1170);
-  margin: rem-calc(140) auto;
-  padding: 0 rem-calc(5);
+  margin-block: clamp(3.75rem, 9.48vw, 7.5rem);
+
   .products {
     display: flex;
     flex-direction: column;
-    gap: rem-calc(60);
+    gap: clamp(1.88rem, 4.74vw, 3.75rem);
     .title {
       display: flex;
       flex-direction: column;
-      gap: rem-calc(20);
+      gap: clamp(0.63rem, 1.58vw, 1.25rem);
 
       .boxAndTag {
         display: flex;
-        gap: rem-calc(16);
+        gap: clamp(0.5rem, 1.26vw, 1rem);
         align-items: center;
         .box {
-          width: rem-calc(20);
-          height: rem-calc(40);
+          width: clamp(0.63rem, 1.58vw, 1.25rem);
+          height: clamp(1.25rem, 3.16vw, 2.5rem);
           background-color: $Secondary2;
           border-radius: rem-calc(4);
         }
@@ -35,6 +37,8 @@
       }
       h3 {
         @include typography('heading-36PX', 'semibold');
+        font-size: clamp(1.5rem, 2.84vw, 2.25rem);
+        line-height: clamp(1.5rem, 2.37vw, 1.88rem);
         color: $Text2;
       }
     }

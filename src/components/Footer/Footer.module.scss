@@ -3,16 +3,14 @@
   background-color: $Button;
 
   .footerContainer {
-    max-width: rem-calc(1440);
     min-height: rem-calc(440);
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
 
     .footerContent {
       display: flex;
-      margin: rem-calc(80) auto rem-calc(60);
-      gap: rem-calc(87);
+      margin: clamp(2.5rem, 6.32vw, 5rem) 0 clamp(1.88rem, 4.74vw, 3.75rem);
+      gap: clamp(2.5rem, 6.32vw, 5rem);
       // justify-content: space-between;
       // border: 1px solid white;
       flex-wrap: wrap;
@@ -156,20 +154,21 @@
         }
       }
     }
-    .copyright {
-      padding-top: rem-calc(16);
-      border-top: 1px solid $Primary;
-      opacity: 40%;
-      .copyrightContent {
-        display: flex;
-        gap: rem-calc(16);
-        opacity: 60%;
-        justify-content: center;
-        align-items: center;
-        p {
-          @include typography('title-16PX', 'regular');
-          color: $Primary;
-        }
+  }
+  .copyright {
+    padding-top: rem-calc(16);
+    padding-bottom: rem-calc(8);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 0 auto;
+    .copyrightContent {
+      display: flex;
+      gap: rem-calc(16);
+      opacity: 60%;
+      justify-content: center;
+      align-items: center;
+      p {
+        @include typography('title-16PX', 'regular');
+        color: $Primary;
       }
     }
   }

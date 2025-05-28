@@ -50,12 +50,6 @@ export const Cart: React.FC = () => {
 
   const allSelected = cartItems.every((item) => item.selected);
 
-  // untuk dialog
-  // const handleDeleteSelectAll = () => {
-  //   setDialog({
-  //     title: 'Del'
-  //   })
-  // }
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const openModal = () => {
     setIsModalOpen(true);

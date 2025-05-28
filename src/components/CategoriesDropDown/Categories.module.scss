@@ -1,69 +1,70 @@
-.categoriesBanner {
-  display: flex;
-  flex-wrap: wrap;
-  gap: rem-calc(61);
-  max-width: rem-calc(1170rem);
-  margin: 0 auto;
-
-  .categories {
-    display: flex;
-    flex-direction: column;
-    gap: rem-calc(16);
-    width: rem-calc(217);
-    justify-content: space-between;
-    padding-left: rem-calc(5);
-
-    .categoryItem {
-      cursor: pointer;
-      display: block;
-
-      .categoryName {
-        @include typography('title-16PX', 'regular');
-        color: $Text2;
-        display: flex;
-        justify-content: space-between;
-        &:hover {
-          color: $Secondary2;
-        }
-      }
-
-      img {
-        transition: transform 0.3 ease;
-        transform: rotate(0deg);
-      }
-
-      .subCategories {
-        display: flex;
-        flex-direction: column;
-        gap: rem-calc(8);
-        margin: rem-calc(8) 0 0 rem-calc(32);
-
-        .linkSubCategory {
-          @include typography('title-14PX', 'regular');
-          color: $Text2;
-          &:hover {
-            color: $Secondary2;
-          }
-        }
-      }
-    }
-
-    .open {
-      img {
-        transform: rotate(90deg);
-      }
-    }
+.Banner {
+  // display: flex;
+  // flex-wrap: wrap;
+  // gap: rem-calc(61);
+  width: 100%;
+  @media (min-width: 1024px) {
+    max-width: 1218px;
+    margin-inline: auto;
+    padding-inline: rem-calc(24);
   }
 
+  // .categories {
+  //   display: flex;
+  //   flex-direction: column;
+  //   gap: rem-calc(16);
+  //   width: rem-calc(217);
+  //   justify-content: space-between;
+  //   padding-left: rem-calc(5);
+
+  //   .categoryItem {
+  //     cursor: pointer;
+  //     display: block;
+
+  //     .categoryName {
+  //       @include typography('title-16PX', 'regular');
+  //       color: $Text2;
+  //       display: flex;
+  //       justify-content: space-between;
+  //       &:hover {
+  //         color: $Secondary2;
+  //       }
+  //     }
+
+  //     img {
+  //       transition: transform 0.3 ease;
+  //       transform: rotate(0deg);
+  //     }
+
+  //     .subCategories {
+  //       display: flex;
+  //       flex-direction: column;
+  //       gap: rem-calc(8);
+  //       margin: rem-calc(8) 0 0 rem-calc(32);
+
+  //       .linkSubCategory {
+  //         @include typography('title-14PX', 'regular');
+  //         color: $Text2;
+  //         &:hover {
+  //           color: $Secondary2;
+  //         }
+  //       }
+  //     }
+  //   }
+
+  //   .open {
+  //     img {
+  //       transform: rotate(90deg);
+  //     }
+  //   }
+  // }
+
   .sliderImage {
-    width: 100%;
-    max-width: 892px;
-    max-height: 344px;
     object-fit: cover;
     width: 100%;
     height: auto;
   }
 }
 
-.categories {
-}
+// .categories {
+// }

@@ -9,12 +9,10 @@
 }
 
 .container {
-  width: 100%;
-  max-width: 1440px;
+  max-width: 1218px;
   margin: 0 auto;
-  // padding: 0 135px;
-  // display: grid;
-  // grid-template-columns: repeat(12, 1fr);
-  // gap: 30px;
-  // box-sizing: border-box;
+  padding-inline: rem-calc(24);
+  @media (max-width: 768px) {
+    padding-inline: rem-calc(16);
+  }
 }

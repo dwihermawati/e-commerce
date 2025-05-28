@@ -4,9 +4,8 @@
   flex-direction: column;
   transition: transform 0.2s, box-shadow 0.2s;
   cursor: pointer;
-  flex: 1 0 rem-calc(200);
+  flex: 1;
   position: relative;
-  max-width: rem-calc(270);
 
   &:hover {
     transform: translateY(-3px);
@@ -80,6 +79,7 @@
     gap: rem-calc(8);
     padding: 0 rem-calc(5);
     justify-content: space-between;
+    // flex: 1;
 
     h3 {
       @include typography('title-16PX', 'medium');

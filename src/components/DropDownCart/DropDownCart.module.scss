@@ -6,7 +6,7 @@
   }
 
   .emptyItems {
-    width: rem-calc(300);
+    width: clamp(16.88rem, 23.69vw, 18.75rem);
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -27,11 +27,14 @@
     h2 {
       @include typography('title-16PX', 'bold');
       color: $Text2;
+      font-size: clamp(0.88rem, 1.26vw, 1rem);
     }
     p {
       @include typography('title-14PX', 'regular');
       color: $Text2;
-      margin-bottom: rem-calc(20);
+      margin-bottom: clamp(0.63rem, 1.58vw, 1.25rem);
+      font-size: clamp(0.75rem, 1.11vw, 0.88rem);
+      line-height: clamp(1.13rem, 1.66vw, 1.31rem);
     }
   }
 
@@ -63,7 +66,6 @@
 
   .dropdownItemWrapper {
     max-height: rem-calc(380);
-    width: rem-calc(390);
     position: absolute;
     top: 35px;
     right: -10px;
@@ -107,8 +109,8 @@
           overflow-y: auto;
           width: 100%;
           .boxImage {
-            width: rem-calc(56);
-            height: rem-calc(56);
+            width: clamp(3.5rem, 2.53vw, 2rem);
+            height: clamp(3.5rem, 2.53vw, 2rem);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -126,16 +128,18 @@
             justify-content: space-between;
             text-align: left;
             width: 100%;
+            @include typography('title-14PX', 'semibold');
+            font-size: clamp(0.75rem, 1.11vw, 0.88rem);
+            line-height: clamp(1.13rem, 1.66vw, 1.31rem);
             .itemTitle {
-              @include typography('title-14PX', 'semibold');
-              max-width: rem-calc(205);
+              max-width: clamp(6.88rem, 16.2vw, 12.81rem);
               overflow-x: hidden;
               white-space: nowrap;
               text-overflow: ellipsis;
               cursor: pointer;
-            }
-            .itemPrice {
-              @include typography('title-14PX', 'semibold');
+              &:hover {
+                color: $Secondary2;
+              }
             }
           }
         }

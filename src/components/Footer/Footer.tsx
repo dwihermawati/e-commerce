@@ -1,10 +1,11 @@
+import clsx from 'clsx';
 import styles from './Footer.module.scss';
 import React from 'react';
 
 export const Footer: React.FC = () => {
   return (
     <div className={styles.footer}>
-      <div className={styles.footerContainer}>
+      <div className={clsx('container', styles.footerContainer)}>
         <div className={styles.footerContent}>
           <div className={styles.frame1}>
             <div className={styles.headerFrame1}>
@@ -91,11 +92,11 @@ export const Footer: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className={styles.copyright}>
-          <div className={styles.copyrightContent}>
-            <img src='/assets/Icons/copyright.svg' alt='copyright' />
-            <p>Copyright by Dwi Hermawati. All right reserved</p>
-          </div>
+      </div>
+      <div className={styles.copyright}>
+        <div className={styles.copyrightContent}>
+          <img src='/assets/Icons/copyright.svg' alt='copyright' />
+          <p>Copyright by Dwi Hermawati. All right reserved</p>
         </div>
       </div>
     </div>

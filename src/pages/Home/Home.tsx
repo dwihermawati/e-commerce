@@ -1,10 +1,11 @@
 import styles from './Home.module.scss';
-import { CategoriesWithBanner } from '@/components/CategoriesDropDown';
+import { Banner } from '@/components/CategoriesDropDown';
 import { Header } from '@/components/Header';
 import { TopHeader } from '@/components/TopHeader';
 import React, { useEffect } from 'react';
 import { Footer } from '@/components/Footer';
 import { ProductList } from '@/components/ProductList';
+import clsx from 'clsx';
 
 export const Home: React.FC = () => {
   useEffect(() => {
@@ -22,10 +23,10 @@ export const Home: React.FC = () => {
       <div className={styles.navbar} id='/'>
         <Header />
       </div>
-      <div id='categories'>
-        <CategoriesWithBanner />
-      </div>
-      <main className={styles.mainContent}>
+      {/* <div id='categories'> */}
+      <Banner />
+      {/* </div> */}
+      <main className={clsx('container', styles.mainContent)}>
         <div className={styles.products} id='products'>
           <div className={styles.title}>
             <div className={styles.boxAndTag}>

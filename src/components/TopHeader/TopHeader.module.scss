@@ -1,7 +1,7 @@
 header {
   width: 100%;
   background-color: $Button;
-  margin-bottom: rem-calc(24);
+  // margin-bottom: rem-calc(24);
 
   .topHeader {
     width: 100%;
@@ -10,16 +10,15 @@ header {
     justify-content: end;
     align-items: center;
     text-align: center;
-    gap: rem-calc(231);
-    @media (max-width: 768px) {
-      gap: rem-calc(16);
-    }
+    gap: rem-calc(16);
 
     .text {
       display: flex;
       gap: rem-calc(8);
       color: $Text;
       align-items: center;
+      justify-content: center;
+      width: 100%;
 
       p {
         @include typography('title-14PX', 'regular');
@@ -47,6 +46,7 @@ header {
       background-color: $Button;
       border: none;
       color: $Text;
+      max-width: rem-calc(78);
       @include typography('title-14PX', 'semibold');
       cursor: pointer;
 

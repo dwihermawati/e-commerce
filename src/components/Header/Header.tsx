@@ -1,5 +1,5 @@
 import styles from './Header.module.scss';
-import { Hamburger } from '../Hamburger/Hamburger';
+// import { Hamburger } from '../Hamburger/Hamburger';
 import { Link, useNavigate } from 'react-router-dom';
 import { setSearchQuery } from '@/redux/searchSlice';
 import { useAppDispatch } from '@/redux/hooks';
@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import { DropDownUser } from '../DropDownUser';
 import { DropDownWishlist } from '../DropDownWishlist';
 import { DropDownCart } from '../DropDownCart';
+import clsx from 'clsx';
 
 export const Header: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -37,10 +38,10 @@ export const Header: React.FC = () => {
   return (
     <>
       <div className={styles.header}>
-        <div className={styles.navbar}>
-          <div className={styles.hamburger}>
+        <div className={clsx('container', styles.navbar)}>
+          {/* <div className={styles.hamburger}>
             <Hamburger />
-          </div>
+          </div> */}
           <div className={styles.logoNav}>
             <img
               className={styles.iconLogo}

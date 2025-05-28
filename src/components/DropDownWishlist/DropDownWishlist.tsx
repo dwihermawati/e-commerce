@@ -33,12 +33,12 @@ export const DropDownWishlist: React.FC = () => {
       className={styles.wishlistIcon}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onClick={goToWishlist}
     >
       <img
         src='/assets/Icons/wishlist.svg'
         alt='wishlist'
         className={styles.image}
+        onClick={goToWishlist}
       />
       {wishlistItems.length >= 1 ? (
         <span className={styles.itemCount}>{wishlistItemCount}</span>
