@@ -1,35 +1,34 @@
 .footer {
   width: 100%;
   background-color: $Button;
+  // position: fixed;
+  // bottom: 0;
 
   .footerContainer {
-    min-height: rem-calc(440);
     display: flex;
     flex-direction: column;
 
     .footerContent {
       display: flex;
       margin: clamp(2.5rem, 6.32vw, 5rem) 0 clamp(1.88rem, 4.74vw, 3.75rem);
-      gap: clamp(2.5rem, 6.32vw, 5rem);
-      // justify-content: space-between;
-      // border: 1px solid white;
+      gap: clamp(1.25rem, 3.16vw, 2.5rem);
+      justify-content: space-between;
       flex-wrap: wrap;
-      padding: 0 rem-calc(5);
 
       .frame1 {
         display: flex;
         flex-direction: column;
-        gap: rem-calc(16);
+        gap: clamp(0.5rem, 1.26vw, 1rem);
         .headerFrame1 {
           display: flex;
           flex-direction: column;
-          gap: rem-calc(24);
+          gap: clamp(0.75rem, 1.9vw, 1.5rem);
           .logoTitle {
             display: flex;
             flex-direction: column;
-            gap: rem-calc(24);
+            gap: clamp(1rem, 1.97vw, 1.5rem);
             img {
-              width: rem-calc(119.59);
+              width: rem-calc(120);
               cursor: pointer;
 
               &:hover {
@@ -38,6 +37,8 @@
             }
             a {
               @include typography('title-20PX', 'medium');
+              font-size: clamp(0.88rem, 1.58vw, 1.25rem);
+              line-height: clamp(1.31rem, 2.21vw, 1.75rem);
               color: $Text;
               &:hover {
                 color: $Button1;
@@ -47,48 +48,66 @@
 
           p {
             @include typography('title-16PX', 'regular');
+            font-size: clamp(0.75rem, 1.31vw, 1rem);
+            line-height: clamp(1.13rem, 1.9vw, 1.5rem);
             color: $Text;
           }
         }
 
         .inputIcon {
-          width: rem-calc(217);
+          width: 100%;
           display: flex;
-          gap: rem-calc(32);
-          border: 1.5px solid $Text;
+          gap: rem-calc(16);
+          border: 1px solid $Text;
           border-radius: rem-calc(4);
           justify-content: space-between;
+          padding: rem-calc(8);
           input {
             @include typography('title-16PX', 'regular');
+            font-size: clamp(0.75rem, 1.31vw, 1rem);
+            line-height: clamp(1.13rem, 1.9vw, 1.5rem);
             color: $Text;
             opacity: 40%;
             background-color: transparent;
             border: none;
             outline: none;
-            width: rem-calc(130);
-            padding: rem-calc(12) 0 rem-calc(12) rem-calc(16);
+            width: rem-calc(200);
           }
           img {
             cursor: pointer;
-            margin-right: rem-calc(15);
           }
         }
       }
       .frame2 {
         display: flex;
         flex-direction: column;
-        gap: rem-calc(24);
+        gap: clamp(0.75rem, 1.9vw, 1.5rem);
         h3 {
           @include typography('title-20PX', 'medium');
+          font-size: clamp(0.88rem, 1.58vw, 1.25rem);
+          line-height: clamp(1.31rem, 2.21vw, 1.75rem);
           color: $Text;
+          position: relative;
+
+          &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 100%;
+            height: 1px;
+            background-color: $Text;
+          }
         }
         .address {
           display: flex;
           flex-direction: column;
-          gap: rem-calc(16);
+          gap: clamp(0.5rem, 1.26vw, 1rem);
           p,
           a {
             @include typography('title-16PX', 'regular');
+            font-size: clamp(0.75rem, 1.31vw, 1rem);
+            line-height: clamp(1.13rem, 1.9vw, 1.5rem);
             color: $Text;
           }
           a:hover {
@@ -100,18 +119,33 @@
       .frame4 {
         display: flex;
         flex-direction: column;
-        gap: rem-calc(24);
+        gap: clamp(0.75rem, 1.9vw, 1.5rem);
         h3 {
           @include typography('title-20PX', 'medium');
+          font-size: clamp(0.88rem, 1.58vw, 1.25rem);
+          line-height: clamp(1.31rem, 2.21vw, 1.75rem);
           color: $Text;
+          position: relative;
+
+          &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 100%;
+            height: 1px;
+            background-color: $Text;
+          }
         }
         ul {
           display: flex;
           flex-direction: column;
-          gap: rem-calc(16);
+          gap: clamp(0.5rem, 1.26vw, 1rem);
           li {
             a {
               @include typography('title-16PX', 'regular');
+              font-size: clamp(0.75rem, 1.31vw, 1rem);
+              line-height: clamp(1.13rem, 1.9vw, 1.5rem);
               color: $Text;
               &:hover {
                 color: $Button1;
@@ -124,14 +158,27 @@
       .frame5 {
         display: flex;
         flex-direction: column;
-        gap: rem-calc(24);
+        gap: clamp(0.75rem, 1.9vw, 1.5rem);
         .wrapDownload {
           display: flex;
           flex-direction: column;
-          gap: rem-calc(24);
+          gap: clamp(0.75rem, 1.9vw, 1.5rem);
           h3 {
             @include typography('title-20PX', 'medium');
+            font-size: clamp(0.88rem, 1.58vw, 1.25rem);
+            line-height: clamp(1.31rem, 2.21vw, 1.75rem);
             color: $Text;
+            position: relative;
+
+            &::after {
+              content: '';
+              position: absolute;
+              left: 0;
+              bottom: -4px;
+              width: 100%;
+              height: 1px;
+              background-color: $Text;
+            }
           }
           .mapIconDownload {
             display: flex;
@@ -143,14 +190,20 @@
               opacity: 70%;
             }
             img {
-              width: rem-calc(198);
+              width: rem-calc(170);
             }
           }
         }
         .iconSosmed {
           display: flex;
           gap: rem-calc(24);
-          cursor: pointer;
+
+          .icon {
+            cursor: pointer;
+            &:hover {
+              scale: 1.1;
+            }
+          }
         }
       }
     }
@@ -162,12 +215,14 @@
     margin: 0 auto;
     .copyrightContent {
       display: flex;
-      gap: rem-calc(16);
+      gap: clamp(0.5rem, 1.26vw, 1rem);
       opacity: 60%;
       justify-content: center;
       align-items: center;
       p {
         @include typography('title-16PX', 'regular');
+        font-size: clamp(0.75rem, 1.31vw, 1rem);
+        line-height: clamp(1.13rem, 1.9vw, 1.5rem);
         color: $Primary;
       }
     }

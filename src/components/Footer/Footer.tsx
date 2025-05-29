@@ -1,8 +1,14 @@
 import clsx from 'clsx';
 import styles from './Footer.module.scss';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
+  const navigate = useNavigate();
+
+  const home = () => {
+    navigate('/#home');
+  };
   return (
     <div className={styles.footer}>
       <div className={clsx('container', styles.footerContainer)}>
@@ -10,8 +16,12 @@ export const Footer: React.FC = () => {
           <div className={styles.frame1}>
             <div className={styles.headerFrame1}>
               <div className={styles.logoTitle}>
-                <img src='/assets/Images/logo-shopzone-putih.svg' alt='logo' />
-                <a href='#'>Subscribe</a>
+                <img
+                  src='/assets/Images/logo-shopzone-putih.svg'
+                  alt='logo'
+                  onClick={home}
+                />
+                <a href='/contact#contactUs'>Subscribe</a>
               </div>
               <p>Get 10% off your first order</p>
             </div>
@@ -46,13 +56,13 @@ export const Footer: React.FC = () => {
                 <a href='#'>Login / Register</a>
               </li>
               <li>
-                <a href='#'>Cart</a>
+                <a href='/cart'>Cart</a>
               </li>
               <li>
-                <a href='#'>Wishlist</a>
+                <a href='/wishlist'>Wishlist</a>
               </li>
               <li>
-                <a href='#'>Shop</a>
+                <a href='/#products'>Shop</a>
               </li>
             </ul>
           </div>
@@ -60,16 +70,16 @@ export const Footer: React.FC = () => {
             <h3>Quick Link</h3>
             <ul>
               <li>
-                <a href='#'>Privacy Policy</a>
+                <a href='/error-404'>Privacy Policy</a>
               </li>
               <li>
-                <a href='#'>Terms Of Use</a>
+                <a href='/error-404'>Terms Of Use</a>
               </li>
               <li>
-                <a href='#'>FAQ</a>
+                <a href='/error-404'>FAQ</a>
               </li>
               <li>
-                <a href='#'>Contact</a>
+                <a href='/contact#contactUs'>Contact</a>
               </li>
             </ul>
           </div>
@@ -85,10 +95,50 @@ export const Footer: React.FC = () => {
               </div>
             </div>
             <div className={styles.iconSosmed}>
-              <img src='/assets/Icons/facebook.svg' alt='Facebook Icon' />
-              <img src='/assets/Icons/twitter.svg' alt='twitter Icon' />
-              <img src='/assets/Icons/instagram.svg' alt='instagram Icon' />
-              <img src='/assets/Icons/linkin.svg' alt='linked in Icon' />
+              <a
+                href='https://www.facebook.com'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <img
+                  src='/assets/Icons/facebook.svg'
+                  alt='Facebook Icon'
+                  className={styles.icon}
+                />
+              </a>
+              <a
+                href='https://www.twitter.com'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <img
+                  src='/assets/Icons/twitter.svg'
+                  alt='Twitter Icon'
+                  className={styles.icon}
+                />
+              </a>
+              <a
+                href='https://www.instagram.com'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <img
+                  src='/assets/Icons/instagram.svg'
+                  alt='Instagram Icon'
+                  className={styles.icon}
+                />
+              </a>
+              <a
+                href='https://www.linkedin.com'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <img
+                  src='/assets/Icons/linkin.svg'
+                  alt='LinkedIn Icon'
+                  className={styles.icon}
+                />
+              </a>
             </div>
           </div>
         </div>

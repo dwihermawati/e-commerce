@@ -32,7 +32,7 @@ export const Header: React.FC = () => {
   };
 
   const home = () => {
-    navigate('/');
+    navigate('/#home');
   };
 
   return (
@@ -51,22 +51,22 @@ export const Header: React.FC = () => {
             />
             <ul>
               <li>
-                <Link to='/' className={styles.link}>
+                <Link to='/#home' className={styles.link}>
                   Home
                 </Link>
               </li>
               <li>
-                <Link to='/contact' className={styles.link}>
+                <Link to='/contact#contactUs' className={styles.link}>
                   Contact
                 </Link>
               </li>
               <li>
-                <Link to='/about' className={styles.link}>
+                <Link to='/about#aboutUs' className={styles.link}>
                   About
                 </Link>
               </li>
               <li>
-                <Link to='/signUp' className={styles.link}>
+                <Link to='/signUp#signIn' className={styles.link}>
                   SignUp
                 </Link>
               </li>

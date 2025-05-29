@@ -1,26 +1,26 @@
 .navbar {
   position: sticky;
   top: 0;
-  margin-bottom: rem-calc(40);
+  margin-bottom: rem-calc(32);
+  @media (max-width: 1024px) {
+    margin-bottom: 0;
+  }
   z-index: 100;
 }
 
-.mainContent {
-  max-width: rem-calc(1170);
-  margin: rem-calc(80) auto rem-calc(140);
-  padding: 0 rem-calc(10);
-
-  .notFound {
-    display: flex;
-    flex-direction: column;
-    gap: rem-calc(40);
-    text-align: center;
-    h1 {
-      @include typography('heading-110PX', 'medium');
-      color: #000000;
-    }
-    .button {
-      margin-top: rem-calc(40);
-    }
+.notFound {
+  margin-block: clamp(3.75rem, 9.48vw, 7.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.25rem, 3.16vw, 2.5rem);
+  text-align: center;
+  h1 {
+    @include typography('heading-110PX', 'medium');
+    font-size: clamp(3.38rem, 8.69vw, 6.88rem);
+    line-height: clamp(4rem, 9.09vw, 7.19rem);
+    color: #000000;
+  }
+  .button {
+    margin-top: clamp(1.25rem, 3.16vw, 2.5rem);
   }
 }

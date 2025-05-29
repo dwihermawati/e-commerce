@@ -2,30 +2,22 @@ import styles from './Home.module.scss';
 import { Banner } from '@/components/CategoriesDropDown';
 import { Header } from '@/components/Header';
 import { TopHeader } from '@/components/TopHeader';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Footer } from '@/components/Footer';
 import { ProductList } from '@/components/ProductList';
 import clsx from 'clsx';
 
 export const Home: React.FC = () => {
-  useEffect(() => {
-    if (location.hash === '#products') {
-      const productsSection = document.getElementById('products');
-      if (productsSection) {
-        productsSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  });
-
   return (
     <>
       <TopHeader />
-      <div className={styles.navbar} id='/'>
+      <div className={styles.navbar}>
         <Header />
       </div>
       {/* <div id='categories'> */}
-      <Banner />
-      {/* </div> */}
+      <div id='home'>
+        <Banner />
+      </div>
       <main className={clsx('container', styles.mainContent)}>
         <div className={styles.products} id='products'>
           <div className={styles.title}>
