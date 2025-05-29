@@ -56,33 +56,30 @@ export const QuantityInput: React.FC<QuantityInputProps> = ({
   }, [quantity]);
 
   return (
-    <div className={styles.quantity}>
-      <div className={styles.content}>
-        <div className={styles.decrease} onClick={handleDecrease}>
-          <div
-            className={clsx(
-              styles.decreaseButton,
-              currentQuantity <= 1 && styles.disabled
-            )}
-          ></div>
-        </div>
-        <div className={styles.input}>
-          <input
-            type='number'
-            value={currentQuantity === 0 ? 0 : currentQuantity}
-            onChange={handleChange}
-            min='1'
-          />
-        </div>
-        <div className={styles.increase} onClick={handleIncrease}>
-          <img
-            src='/assets/Icons/plus.svg'
-            alt=''
-            className={styles.increaseButton}
-          />
-        </div>
+    <div className={styles.content}>
+      <div className={styles.decrease} onClick={handleDecrease}>
+        <div
+          className={clsx(
+            styles.decreaseButton,
+            currentQuantity <= 1 && styles.disabled
+          )}
+        ></div>
       </div>
-
+      <div className={styles.input}>
+        <input
+          type='number'
+          value={currentQuantity === 0 ? 0 : currentQuantity}
+          onChange={handleChange}
+          min='1'
+        />
+      </div>
+      <div className={styles.increase} onClick={handleIncrease}>
+        <img
+          src='/assets/Icons/plus.svg'
+          alt=''
+          className={styles.increaseButton}
+        />
+      </div>
       {error && <p className={styles.error}>{error}</p>}
     </div>
   );

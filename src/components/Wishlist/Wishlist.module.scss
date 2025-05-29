@@ -1,34 +1,48 @@
 .navbar {
   position: sticky;
   top: 0;
-  margin-bottom: rem-calc(40);
   z-index: 100;
 }
 
 .mainContent {
-  max-width: rem-calc(1170);
-  margin: rem-calc(80) auto rem-calc(140);
-  padding: 0 rem-calc(5);
+  margin-block: clamp(3.75rem, 9.48vw, 7.5rem);
+  .link {
+    display: flex;
+    gap: rem-calc(16);
+    margin-bottom: clamp(3.75rem, 9.48vw, 7.5rem);
+
+    .linkStyleHome {
+      @include typography('title-14PX', 'regular');
+      color: $Text2;
+      opacity: 50%;
+    }
+    .linkStyle {
+      @include typography('title-14PX', 'regular');
+      color: $Text2;
+    }
+  }
 
   .tag {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: rem-calc(60);
+    margin-bottom: clamp(1.88rem, 4.74vw, 3.75rem);
     .boxMoveToBagButton {
-      // height: rem-calc(56);
-      padding: rem-calc(16) rem-calc(48);
       border: 1px solid rgba(0, 0, 0, 0.5);
       border-radius: rem-calc(4);
       cursor: pointer;
-      .buttonMove {
-        color: $Text2;
-        @include typography('title-16PX', 'medium');
+      color: $Text2;
+      @include typography('title-16PX', 'medium');
+      padding: rem-calc(8) rem-calc(24);
+      &:hover {
+        color: $Text;
+        background-color: $Secondary2;
+        border-color: $HoverButton;
       }
     }
-    p {
-      @include typography('title-20PX', 'regular');
+    .buttonMove {
       color: $Text2;
+      @include typography('title-16PX', 'medium');
     }
   }
 
@@ -51,9 +65,9 @@
   }
 
   .list {
-    display: flex;
-    gap: rem-calc(30);
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: clamp(0.75rem, 1.9vw, 1.5rem);
 
     .card {
       gap: rem-calc(16);
@@ -61,11 +75,7 @@
       flex-direction: column;
       transition: transform 0.2s, box-shadow 0.2s;
       cursor: pointer;
-      flex: 1 0 rem-calc(200);
-      position: relative;
-      // min-width: rem-calc(250);
-      max-width: rem-calc(270);
-      // margin: 0 auto;
+      flex: 1;
 
       &:hover {
         transform: translateY(-3px);
@@ -73,7 +83,7 @@
       }
 
       .backgroundImage {
-        height: rem-calc(250);
+        height: auto;
         border-radius: rem-calc(4);
         background-color: $Secondary;
         display: flex;
@@ -81,6 +91,7 @@
         position: relative;
         align-items: center;
         gap: rem-calc(14);
+        padding-top: rem-calc(14);
         justify-content: end;
 
         .remove {
@@ -95,7 +106,7 @@
         }
 
         .boxImage {
-          width: rem-calc(190);
+          width: rem-calc(180);
           height: rem-calc(180);
           display: flex;
           justify-content: center;
@@ -112,7 +123,7 @@
         }
         .addToCartButton {
           width: 100%;
-          height: rem-calc(41);
+          height: rem-calc(40);
           background-color: $Button;
           border-radius: 0 0 rem-calc(4) rem-calc(4);
           @include typography('title-16PX', 'medium');
@@ -152,9 +163,8 @@
   .relatedProducts {
     display: flex;
     flex-direction: column;
-    gap: rem-calc(60);
-    margin-top: rem-calc(80);
-
+    gap: clamp(1.88rem, 4.74vw, 3.75rem);
+    margin-top: clamp(3.75rem, 6.32vw, 5rem);
     .title {
       display: flex;
       justify-content: space-between;
@@ -162,7 +172,7 @@
 
       .boxAndTag {
         display: flex;
-        gap: rem-calc(16);
+        gap: clamp(0.5rem, 1.26vw, 1rem);
         align-items: center;
         .box {
           width: rem-calc(20);
@@ -177,27 +187,29 @@
       }
 
       .boxSeeAll {
-        // height: rem-calc(56);
-        padding: rem-calc(16) rem-calc(48);
         border: 1px solid rgba(0, 0, 0, 0.5);
         border-radius: rem-calc(4);
         cursor: pointer;
-        .buttonSeeAll {
-          color: $Text2;
-          @include typography('title-16PX', 'medium');
+        padding: rem-calc(8) rem-calc(24);
+        color: $Text2;
+        @include typography('title-16PX', 'medium');
+        &:hover {
+          color: $Text;
+          background-color: $Secondary2;
+          border-color: $HoverButton;
         }
       }
     }
 
     .productsGrid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: rem-calc(30);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: clamp(0.75rem, 1.9vw, 1.5rem);
 
       .noProductRelated {
         @include typography('title-20PX', 'medium');
         color: $Secondary2;
-        margin: 0 auto;
+        text-align: center;
       }
     }
   }

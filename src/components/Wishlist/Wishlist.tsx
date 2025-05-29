@@ -7,7 +7,7 @@ import { TopHeader } from '../TopHeader';
 import { Header } from '../Header';
 import { Footer } from '../Footer';
 import { Button } from '../Button';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { WishlistProps } from '@/types/wishlistProps';
 import { CartItemProps } from '@/types/cart';
 import { addToCart } from '@/redux/cartSlice';
@@ -19,6 +19,7 @@ import {
 import { CardProduct } from '../CardProduct';
 import { Product } from '@/types/product';
 import { useToast } from '@/context/ToastContext';
+import clsx from 'clsx';
 
 export const Wishlist: React.FC = () => {
   const products = useSelector((state: RootState) => state.products.products);
@@ -105,14 +106,24 @@ export const Wishlist: React.FC = () => {
       <div className={styles.navbar}>
         <Header />
       </div>
-      <main className={styles.mainContent}>
+
+      <main className={clsx('container', styles.mainContent)}>
+        <div className={styles.link}>
+          <Link to='/' className={styles.linkStyleHome}>
+            Home
+          </Link>
+          <span className={styles.linkStyleHome}>/</span>
+          <Link to='/wishlist' className={styles.linkStyle}>
+            Wishlist
+          </Link>
+        </div>
         <div className={styles.tag}>
           <span>Wishlist ({wishlistItemCount})</span>
           <div
             className={styles.boxMoveToBagButton}
             onClick={handleMoveAllToBag}
           >
-            <p className={styles.buttonMove}>Move All To Bag</p>
+            Move All To Bag
           </div>
         </div>
         {wishlistItems.length === 0 ? (
@@ -171,7 +182,7 @@ export const Wishlist: React.FC = () => {
               <span className={styles.tagRelatedProduct}>Just For You</span>
             </div>
             <div className={styles.boxSeeAll} onClick={seeAll}>
-              <p className={styles.buttonSeeAll}>See All</p>
+              See All
             </div>
           </div>
 

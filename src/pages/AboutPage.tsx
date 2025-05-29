@@ -5,6 +5,7 @@ import { TopHeader } from '@/components/TopHeader';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Footer } from '@/components/Footer';
+import clsx from 'clsx';
 
 export const AboutPage: React.FC = () => {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ export const AboutPage: React.FC = () => {
       <div className={styles.navbar}>
         <Header />
       </div>
-      <main className={styles.mainContent}>
+      <main className={clsx('container', styles.mainContent)}>
         <div className={styles.notFound}>
           <h1>About Us</h1>
           <div className={styles.button}>

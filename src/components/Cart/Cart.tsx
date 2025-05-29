@@ -18,6 +18,7 @@ import { QuantityInput } from '../QuantityInput';
 import { Button } from '../Button';
 import { Footer } from '../Footer';
 import { useToast } from '@/context/ToastContext';
+import clsx from 'clsx';
 // import { useDialog } from '@/context/DialogContext';
 
 export const Cart: React.FC = () => {
@@ -99,16 +100,16 @@ export const Cart: React.FC = () => {
       <div className={styles.navbar}>
         <Header />
       </div>
-      <div className={styles.link}>
-        <Link to='/' className={styles.linkStyleHome}>
-          Home
-        </Link>
-        <span className={styles.linkStyleHome}>/</span>
-        <Link to='/cart' className={styles.linkStyle}>
-          Cart
-        </Link>
-      </div>
-      <main className={styles.mainContent}>
+      <main className={clsx('container', styles.mainContent)}>
+        <div className={styles.link}>
+          <Link to='/' className={styles.linkStyleHome}>
+            Home
+          </Link>
+          <span className={styles.linkStyleHome}>/</span>
+          <Link to='/cart' className={styles.linkStyle}>
+            Cart
+          </Link>
+        </div>
         {cartItems.length === 0 ? (
           <div className={styles.emptyDisplay}>
             <img src='/assets/Images/empty-state-pp.svg' alt='' />
@@ -174,7 +175,7 @@ export const Cart: React.FC = () => {
                             src='/assets/Icons/remove.svg'
                             alt='remove'
                             onClick={() => handleRemoveItem(item.id)}
-                            style={{ cursor: 'pointer' }}
+                            className={styles.rmIcon}
                           />
                           <QuantityInput
                             id={item.id}
