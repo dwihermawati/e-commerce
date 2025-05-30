@@ -1,40 +1,43 @@
 .navbar {
   position: sticky;
   top: 0;
-  margin-bottom: rem-calc(40);
   z-index: 100;
 }
 
 .mainContent {
-  max-width: rem-calc(1170);
-  margin: rem-calc(80) auto rem-calc(140);
-  padding: 0 rem-calc(5);
-
+  margin-block: clamp(3.75rem, 9.48vw, 7.5rem);
   .link {
     display: flex;
     gap: rem-calc(16);
-    margin: rem-calc(80) auto;
+    margin-bottom: clamp(3.75rem, 9.48vw, 7.5rem);
 
     .linkStyle {
       @include typography('title-14PX', 'regular');
       color: $Text2;
       opacity: 50%;
+      text-align: center;
+      // white-space: nowrap;
     }
     .tag {
       @include typography('title-14PX', 'regular');
       color: $Text2;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
   }
 
   .contentWrap {
     display: flex;
-    gap: rem-calc(70);
+    gap: clamp(1.88rem, 4.74vw, 3.75rem);
     flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
 
     .boxImageDetail {
-      width: rem-calc(670);
+      flex: 6 0 rem-calc(320);
       max-height: rem-calc(570);
       background-color: $Secondary;
       border-radius: rem-calc(4);
@@ -51,34 +54,37 @@
       display: flex;
       flex-direction: column;
       gap: rem-calc(24);
-      width: rem-calc(400);
-      max-width: rem-calc(670);
-      flex: 1 1 0;
-      margin: 0 auto;
+      flex: 4 0 rem-calc(320);
 
       .containProductDetail {
         display: flex;
         flex-direction: column;
-        gap: rem-calc(16);
+        gap: clamp(0.5rem, 1.31vw, 1rem);
         border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 
         h3 {
           @include typography('heading-24PX', 'semibold');
+          font-size: clamp(1.25rem, 1.9vw, 1.5rem);
+          line-height: clamp(1.25rem, 1.9vw, 1.5rem);
           color: $Text2;
         }
         .price {
           @include typography('heading-24PX', 'regular');
+          font-size: clamp(1.25rem, 1.9vw, 1.5rem);
+          line-height: clamp(1.25rem, 1.9vw, 1.5rem);
           color: $Text2;
         }
         .descriptionProduct {
           @include typography('title-14PX', 'regular');
+          font-size: clamp(0.75rem, 1.11vw, 0.88rem);
+          line-height: clamp(1.13rem, 1.66vw, 1.31rem);
           color: $Text2;
-          margin: rem-calc(8) 0 rem-calc(24);
+          margin-bottom: rem-calc(24);
         }
       }
       .action {
         display: flex;
-        gap: rem-calc(17);
+        gap: clamp(0.5rem, 1.31vw, 1rem);
         flex-wrap: wrap;
 
         .wishlist {

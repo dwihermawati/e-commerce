@@ -21,6 +21,7 @@ import { Product } from '@/types/product';
 import { CartItemProps } from '@/types/cart';
 import { addToCart, getDirectCheckoutItems } from '@/redux/cartSlice';
 import { useToast } from '@/context/ToastContext';
+import clsx from 'clsx';
 
 export const ProductDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -95,13 +96,13 @@ export const ProductDetail: React.FC = () => {
       <div className={styles.navbar}>
         <Header />
       </div>
-      <main className={styles.mainContent}>
+      <main className={clsx('container', styles.mainContent)}>
         <div className={styles.link}>
           <Link to='/#products' className={styles.linkStyle}>
             Products
           </Link>
           <span className={styles.linkStyle}>/</span>
-          <Link to='/#categories' className={styles.linkStyle}>
+          <Link to='/#products' className={styles.linkStyle}>
             {category}
           </Link>
           <span className={styles.linkStyle}>/</span>

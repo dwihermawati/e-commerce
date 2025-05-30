@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
                   alt='logo'
                   onClick={home}
                 />
-                <Link to='/contact' className={styles.link}>
+                <Link to='/contact#contactUs' className={styles.link}>
                   Subscribe
                 </Link>
               </div>
@@ -86,17 +86,17 @@ export const Footer: React.FC = () => {
             <h3>Quick Link</h3>
             <ul>
               <li>
-                <Link to='/error-404' className={styles.link}>
+                <Link to='/error-404#not-found' className={styles.link}>
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link to='/error-404' className={styles.link}>
+                <Link to='/error-404#not-found' className={styles.link}>
                   Terms Of Use
                 </Link>
               </li>
               <li>
-                <Link to='/error-404' className={styles.link}>
+                <Link to='/error-404#not-found' className={styles.link}>
                   FAQ
                 </Link>
               </li>

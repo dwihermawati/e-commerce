@@ -1,19 +1,16 @@
 .navbar {
   position: sticky;
   top: 0;
-  margin-bottom: rem-calc(40);
   z-index: 100;
 }
 
 .mainContent {
-  max-width: rem-calc(1170);
-  margin: rem-calc(80) auto rem-calc(140);
-  padding: 0 rem-calc(5);
+  margin-block: clamp(3.75rem, 9.48vw, 7.5rem);
 
   .link {
     display: flex;
     gap: rem-calc(16);
-    margin: rem-calc(80) auto rem-calc(40);
+    margin-bottom: clamp(3.75rem, 9.48vw, 7.5rem);
 
     .linkStyle {
       @include typography('title-14PX', 'regular');
@@ -28,18 +25,22 @@
 
   .title {
     @include typography('title-16PX', 'bold');
+    font-size: clamp(0.88rem, 1.26vw, 1rem);
+    line-height: clamp(1.31rem, 1.9vw, 1.5rem);
     color: $Text2;
     .searchQuery {
       @include typography('title-20PX', 'medium');
+      font-size: clamp(1rem, 1.58vw, 1.25rem);
+      line-height: clamp(1.5rem, 2.21vw, 1.75rem);
       color: $Secondary2;
     }
     margin-bottom: rem-calc(20);
   }
 
   .productsGridSearch {
-    display: flex;
-    flex-wrap: wrap;
-    gap: rem-calc(30);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: clamp(0.75rem, 1.9vw, 1.5rem);
 
     .noFoundProduct {
       display: flex;
@@ -48,17 +49,19 @@
       align-items: center;
       text-align: center;
       width: 100%;
-      padding: rem-calc(30) 0;
+      padding: clamp(1.88rem, 4.74vw, 3.75rem) rem-calc(8);
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 
       .title {
         @include typography('title-24PX', 'bold');
-        color: $Secondary2;
+        font-size: clamp(1rem, 1.97vw, 1.5rem);
+        line-height: clamp(1.5rem, 2.53vw, 2rem);
+        color: $Primary1;
         max-width: rem-calc(585);
-        .searchQuery {
-          @include typography('title-20PX', 'medium');
-          color: $Text2;
-        }
+        // .searchQuery {
+        //   @include typography('title-20PX', 'medium');
+        //   color: $Text2;
+        // }
       }
     }
   }

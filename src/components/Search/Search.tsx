@@ -13,6 +13,7 @@ import { TopHeader } from '../TopHeader';
 import { Header } from '../Header';
 import { Footer } from '../Footer';
 import { Button } from '../Button';
+import clsx from 'clsx';
 
 export const Search: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -57,7 +58,7 @@ export const Search: React.FC = () => {
       <div className={styles.navbar}>
         <Header />
       </div>
-      <main className={styles.mainContent}>
+      <main className={clsx('container', styles.mainContent)}>
         <div className={styles.link}>
           <Link to='/' className={styles.linkStyle}>
             Home

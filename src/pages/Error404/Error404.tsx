@@ -20,7 +20,7 @@ export const Error404: React.FC = () => {
       <div className={styles.navbar}>
         <Header />
       </div>
-      <main className={clsx('container', styles.mainContent)}>
+      <main className={clsx('container', styles.mainContent)} id='not-found'>
         <div className={styles.link}>
           <Link to='/' className={styles.linkStyle}>
             Home
