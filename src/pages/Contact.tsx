@@ -20,7 +20,7 @@ export const ContactPage: React.FC = () => {
       <div className={styles.navbar}>
         <Header />
       </div>
-      <div className={clsx('container', styles.notFound)}>
+      <div className={clsx('container', styles.notFound)} id='contactUs'>
         <h1>Contact</h1>
         <div className={styles.button}>
           <Button color='primary' onClick={backToHome}>

@@ -20,7 +20,7 @@ export const SignUpPage: React.FC = () => {
       <div className={styles.navbar}>
         <Header />
       </div>
-      <main className={clsx('container', styles.mainContent)}>
+      <main className={clsx('container', styles.mainContent)} id='signIn'>
         <div className={styles.notFound}>
           <h1>Sign Up</h1>
           <div className={styles.button}>

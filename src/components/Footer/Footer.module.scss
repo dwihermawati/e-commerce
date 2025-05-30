@@ -35,7 +35,7 @@
                 scale: (1.1);
               }
             }
-            a {
+            .link {
               @include typography('title-20PX', 'medium');
               font-size: clamp(0.88rem, 1.58vw, 1.25rem);
               line-height: clamp(1.31rem, 2.21vw, 1.75rem);
@@ -62,12 +62,15 @@
           border-radius: rem-calc(4);
           justify-content: space-between;
           padding: rem-calc(8);
+          &:focus-within {
+            border-color: $Button1;
+          }
           input {
             @include typography('title-16PX', 'regular');
             font-size: clamp(0.75rem, 1.31vw, 1rem);
             line-height: clamp(1.13rem, 1.9vw, 1.5rem);
             color: $Text;
-            opacity: 40%;
+            // opacity: 40%;
             background-color: transparent;
             border: none;
             outline: none;
@@ -142,7 +145,7 @@
           flex-direction: column;
           gap: clamp(0.5rem, 1.26vw, 1rem);
           li {
-            a {
+            .link {
               @include typography('title-16PX', 'regular');
               font-size: clamp(0.75rem, 1.31vw, 1rem);
               line-height: clamp(1.13rem, 1.9vw, 1.5rem);

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import styles from './Footer.module.scss';
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
   const navigate = useNavigate();
@@ -21,7 +21,9 @@ export const Footer: React.FC = () => {
                   alt='logo'
                   onClick={home}
                 />
-                <a href='/contact#contactUs'>Subscribe</a>
+                <Link to='/contact' className={styles.link}>
+                  Subscribe
+                </Link>
               </div>
               <p>Get 10% off your first order</p>
             </div>
@@ -41,7 +43,11 @@ export const Footer: React.FC = () => {
             <div className={styles.address}>
               <p>WPH Ahademy 191, Jakarta</p>
               <p>shopzonefake@gmail.com</p>
-              <a href='https://wa.me/6285892599073?text=Assalamualaikum%20Mba%20Dwi'>
+              <a
+                href='https://wa.me/6285892599073?text=Assalamualaikum%20Mba%20Dwi'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
                 +62-858-9259-9073 (WhatsApp)
               </a>
             </div>
@@ -50,19 +56,29 @@ export const Footer: React.FC = () => {
             <h3>Account</h3>
             <ul>
               <li>
-                <a href='#'>My Account</a>
+                <Link to='/#home' className={styles.link}>
+                  My Account
+                </Link>
               </li>
               <li>
-                <a href='#'>Login / Register</a>
+                <Link to='/#home' className={styles.link}>
+                  Login / Register
+                </Link>
               </li>
               <li>
-                <a href='/cart'>Cart</a>
+                <Link to='/cart' className={styles.link}>
+                  Cart
+                </Link>
               </li>
               <li>
-                <a href='/wishlist'>Wishlist</a>
+                <Link to='/wishlist' className={styles.link}>
+                  Wishlist
+                </Link>
               </li>
               <li>
-                <a href='/#products'>Shop</a>
+                <Link to='/#products' className={styles.link}>
+                  Shop
+                </Link>
               </li>
             </ul>
           </div>
@@ -70,16 +86,24 @@ export const Footer: React.FC = () => {
             <h3>Quick Link</h3>
             <ul>
               <li>
-                <a href='/error-404'>Privacy Policy</a>
+                <Link to='/error-404' className={styles.link}>
+                  Privacy Policy
+                </Link>
               </li>
               <li>
-                <a href='/error-404'>Terms Of Use</a>
+                <Link to='/error-404' className={styles.link}>
+                  Terms Of Use
+                </Link>
               </li>
               <li>
-                <a href='/error-404'>FAQ</a>
+                <Link to='/error-404' className={styles.link}>
+                  FAQ
+                </Link>
               </li>
               <li>
-                <a href='/contact#contactUs'>Contact</a>
+                <Link to='/contact#contactUs' className={styles.link}>
+                  Contact
+                </Link>
               </li>
             </ul>
           </div>
@@ -88,10 +112,7 @@ export const Footer: React.FC = () => {
               <h3>Download App</h3>
               <div className={styles.mapIconDownload}>
                 <p>Save $3 with App New User Only</p>
-                <img
-                  src='/assets/Images/download-barcode.png'
-                  alt='fake image'
-                />
+                <img src='/assets/Images/download-barcode.png' alt='barcode' />
               </div>
             </div>
             <div className={styles.iconSosmed}>

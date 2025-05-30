@@ -20,7 +20,7 @@ export const AboutPage: React.FC = () => {
       <div className={styles.navbar}>
         <Header />
       </div>
-      <main className={clsx('container', styles.mainContent)}>
+      <main className={clsx('container', styles.mainContent)} id='aboutUs'>
         <div className={styles.notFound}>
           <h1>About Us</h1>
           <div className={styles.button}>
