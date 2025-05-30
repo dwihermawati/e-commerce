@@ -8,14 +8,16 @@ import { useAppDispatch } from '@/redux/hooks';
 import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
 
-type QuantityInputProps = {
+export type QuantityInputProps = {
   id: number;
   quantity: number;
+  directCheckout?: boolean;
 };
 
 export const QuantityInput: React.FC<QuantityInputProps> = ({
   id,
   quantity,
+  directCheckout = false,
 }) => {
   const dispatch = useAppDispatch();
   const [error, setError] = useState<string>('');
@@ -23,14 +25,18 @@ export const QuantityInput: React.FC<QuantityInputProps> = ({
 
   const handleIncrease = () => {
     setCurrentQuantity((prev) => prev + 1);
-    dispatch(increaseQuantity(currentQuantity));
+    dispatch(
+      increaseQuantity({ id, quantity: currentQuantity, directCheckout })
+    );
     setError('');
   };
 
   const handleDecrease = () => {
     if (currentQuantity > 1) {
       setCurrentQuantity((prev) => prev - 1);
-      dispatch(decreaseQuantity(currentQuantity));
+      dispatch(
+        decreaseQuantity({ id, quantity: currentQuantity, directCheckout })
+      );
     }
   };
 

@@ -19,7 +19,7 @@ import { WishlistButton } from '@/components/WishlistButton';
 import { CardProduct } from '../CardProduct';
 import { Product } from '@/types/product';
 import { CartItemProps } from '@/types/cart';
-import { addToCart } from '@/redux/cartSlice';
+import { addToCart, getDirectCheckoutItems } from '@/redux/cartSlice';
 import { useToast } from '@/context/ToastContext';
 
 export const ProductDetail: React.FC = () => {
@@ -32,6 +32,7 @@ export const ProductDetail: React.FC = () => {
   );
 
   const products = useSelector((state: RootState) => state.products.products);
+  const directCheckoutItems = useSelector(getDirectCheckoutItems);
 
   const categorySame = productDetail?.category;
   const relatedProducts = products.filter(
@@ -55,9 +56,13 @@ export const ProductDetail: React.FC = () => {
   };
 
   const handleGoToCheckout = () => {
-    if (productDetail && productDetail.quantity > 0) {
+    if (productDetail && directCheckoutItems[0].quantity > 0) {
       navigate(`/checkout/${productDetail.title}`, {
-        state: { items: [{ ...productDetail, quantity: 1 }] },
+        state: {
+          items: [
+            { ...productDetail, quantity: directCheckoutItems[0].quantity },
+          ],
+        },
       });
     } else {
       alert('Minimum purchase of this product is 1 item');
@@ -118,6 +123,7 @@ export const ProductDetail: React.FC = () => {
               <QuantityInput
                 id={productDetail.id}
                 quantity={productDetail.quantity}
+                directCheckout
               />
               <Button color='primary' onClick={handleGoToCheckout}>
                 Buy Now

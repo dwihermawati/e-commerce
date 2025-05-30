@@ -1,12 +1,15 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { CartItemProps } from '@/types/cart';
+import { QuantityInputProps } from '@/components/QuantityInput';
 
 type CartState = {
   items: CartItemProps[];
+  directCheckoutItems: CartItemProps[];
 };
 
 const initialState: CartState = {
-  items: [],
+  items: [], // cart
+  directCheckoutItems: [], // direct checkout product detail
 };
 
 const cartSlice = createSlice({
@@ -29,6 +32,10 @@ const cartSlice = createSlice({
       }
     },
 
+    addDirectCheckout: (state, action: PayloadAction<CartItemProps>) => {
+      state.directCheckoutItems = [{ ...action.payload, quantity: 1 }];
+    },
+
     removeFromCart: (state, action: PayloadAction<number>) => {
       state.items = state.items.filter((item) => item.id !== action.payload);
     },
@@ -37,22 +44,50 @@ const cartSlice = createSlice({
       state.items = [];
     },
 
-    increaseQuantity: (state, action: PayloadAction<number>) => {
-      state.items = state.items.map((item) =>
-        item.id === action.payload
-          ? { ...item, quantity: item.quantity + 1 }
-          : item
-      );
+    clearDirectCheckoutItems: (state) => {
+      state.directCheckoutItems = [];
     },
 
-    decreaseQuantity: (state, action: PayloadAction<number>) => {
-      state.items = state.items
-        .map((item) =>
-          item.id === action.payload && item.quantity > 1
-            ? { ...item, quantity: item.quantity - 1 }
+    resetDirectCheckoutQuantity: (state) => {
+      state.directCheckoutItems = [
+        { ...state.directCheckoutItems[0], quantity: 1 },
+      ];
+    },
+
+    increaseQuantity: (state, action: PayloadAction<QuantityInputProps>) => {
+      if (!action.payload.directCheckout) {
+        state.items = state.items.map((item) =>
+          item.id === action.payload.id
+            ? { ...item, quantity: item.quantity + 1 }
             : item
-        )
-        .filter((item) => item.quantity > 0);
+        );
+      } else {
+        state.directCheckoutItems = state.directCheckoutItems.map((item) =>
+          item.id === action.payload.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      }
+    },
+
+    decreaseQuantity: (state, action: PayloadAction<QuantityInputProps>) => {
+      if (!action.payload.directCheckout) {
+        state.items = state.items
+          .map((item) =>
+            item.id === action.payload.id && item.quantity > 0
+              ? { ...item, quantity: item.quantity - 1 }
+              : item
+          )
+          .filter((item) => item.quantity > 0);
+      } else {
+        state.directCheckoutItems = state.directCheckoutItems
+          .map((item) =>
+            item.id === action.payload.id && item.quantity > 0
+              ? { ...item, quantity: item.quantity - 1 }
+              : item
+          )
+          .filter((item) => item.quantity > 0);
+      }
     },
 
     updateQuantity: (
@@ -88,6 +123,9 @@ const cartSlice = createSlice({
 
 export const {
   addToCart,
+  addDirectCheckout,
+  clearDirectCheckoutItems,
+  resetDirectCheckoutQuantity,
   removeFromCart,
   clearCart,
   increaseQuantity,
@@ -99,6 +137,8 @@ export const {
 } = cartSlice.actions;
 
 export const selectCartItems = (state: { cart: CartState }) => state.cart.items;
+export const getDirectCheckoutItems = (state: { cart: CartState }) =>
+  state.cart.directCheckoutItems;
 
 export const selectCartItemCount = (state: { cart: CartState }) =>
   state.cart.items.length;

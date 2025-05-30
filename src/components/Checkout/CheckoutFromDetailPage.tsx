@@ -1,12 +1,15 @@
 import styles from './Checkout.module.scss';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { TopHeader } from '../TopHeader';
 import { Header } from '../Header';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Footer } from '../Footer';
 import { CheckoutForm } from '../CheckoutForm';
 import { useSelector } from 'react-redux';
-import { removeSelectedItems } from '@/redux/cartSlice';
+import {
+  clearDirectCheckoutItems,
+  resetDirectCheckoutQuantity,
+} from '@/redux/cartSlice';
 import { Button } from '../Button';
 import { useToast } from '@/context/ToastContext';
 import { useAppDispatch } from '@/redux/hooks';
@@ -69,7 +72,7 @@ export const CheckoutFromDetailPage: React.FC = () => {
         message: `Success to Checkout, Happy Shopping`,
         onClose: () => {},
       });
-      dispatch(removeSelectedItems());
+      dispatch(clearDirectCheckoutItems());
       navigate('/');
       dispatch(resetForm());
     } else {
@@ -83,6 +86,10 @@ export const CheckoutFromDetailPage: React.FC = () => {
       total + item.price * item.quantity,
     0
   );
+
+  useEffect(() => {
+    dispatch(resetDirectCheckoutQuantity());
+  }, [dispatch]);
 
   return (
     <>

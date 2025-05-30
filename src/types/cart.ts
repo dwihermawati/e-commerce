@@ -5,5 +5,5 @@ export type CartItemProps = {
   image: string;
   category: string;
   quantity: number;
-  selected: boolean;
+  selected?: boolean;
 };

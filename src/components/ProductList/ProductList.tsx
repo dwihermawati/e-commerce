@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '@/redux/store';
 import { fetchProductsThunk } from '@/redux/productSlice';
 import { useToast } from '@/context/ToastContext';
-import { addToCart } from '@/redux/cartSlice';
+import { addDirectCheckout, addToCart } from '@/redux/cartSlice';
 import { Loader } from '../Loader';
 import { Product } from '@/types/product';
 import { CartItemProps } from '@/types/cart';
@@ -43,8 +43,13 @@ export const ProductList: React.FC = () => {
     });
   };
 
-  const handleGoToDetail = (id: number) => {
-    navigate(`/product/${id}`);
+  const handleGoToDetail = (product: Product) => {
+    const cartItem: CartItemProps = {
+      ...product,
+      quantity: 1,
+    };
+    dispatch(addDirectCheckout(cartItem));
+    navigate(`/product/${product.id}`);
   };
 
   if (loading) return <Loader />;
@@ -57,7 +62,7 @@ export const ProductList: React.FC = () => {
           key={product.id}
           {...product}
           onAddToCart={() => handleAddToCart(product)}
-          onGoToDetail={() => handleGoToDetail(product.id)}
+          onGoToDetail={() => handleGoToDetail(product)}
         />
       ))}
     </div>
