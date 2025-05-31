@@ -12,12 +12,14 @@ export type QuantityInputProps = {
   id: number;
   quantity: number;
   directCheckout?: boolean;
+  size?: 'small' | 'large';
 };
 
 export const QuantityInput: React.FC<QuantityInputProps> = ({
   id,
   quantity,
   directCheckout = false,
+  size = 'small',
 }) => {
   const dispatch = useAppDispatch();
   const [error, setError] = useState<string>('');
@@ -62,7 +64,7 @@ export const QuantityInput: React.FC<QuantityInputProps> = ({
   }, [quantity]);
 
   return (
-    <div className={styles.content}>
+    <div className={clsx(styles.content, styles[size])}>
       <div className={styles.decrease} onClick={handleDecrease}>
         <div
           className={clsx(

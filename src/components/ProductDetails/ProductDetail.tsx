@@ -120,19 +120,26 @@ export const ProductDetail: React.FC = () => {
               <p className={styles.price}>${price}</p>
               <p className={styles.descriptionProduct}>{description}</p>
             </div>
-            <div className={styles.action}>
-              <QuantityInput
-                id={productDetail.id}
-                quantity={productDetail.quantity}
-                directCheckout
-              />
-              <Button color='primary' onClick={handleGoToCheckout}>
-                Buy Now
-              </Button>
-              <div className={styles.wishlist}>
-                <WishlistButton product={productDetail} />
+            <div className={styles.actionAndImg}>
+              <div className={styles.action}>
+                <QuantityInput
+                  id={productDetail.id}
+                  quantity={productDetail.quantity}
+                  directCheckout
+                  size='large'
+                />
+                <Button color='primary' onClick={handleGoToCheckout}>
+                  Buy Now
+                </Button>
+                <div className={styles.wishlist}>
+                  <WishlistButton product={productDetail} />
+                </div>
               </div>
-              <img src='/assets/Images/free-delivery.svg' alt='free delivery' />
+              <img
+                src='/assets/Images/free-delivery.svg'
+                alt='free delivery'
+                className={styles.freeDeliveryImage}
+              />
             </div>
           </div>
         </div>

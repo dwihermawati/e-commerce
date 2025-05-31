@@ -24,6 +24,7 @@ export const DropDownCart: React.FC = () => {
 
   const goToShopping = () => {
     navigate('/#products');
+    setIsCartHover(false);
   };
 
   const handleGoToDetail = (id: number) => {
@@ -66,7 +67,11 @@ export const DropDownCart: React.FC = () => {
               <div className={styles.dropdownItemWrapper}>
                 <div className={styles.header}>
                   <p className={styles.titleHeader}>Cart ({cartItemCount})</p>
-                  <Link to='/cart' className={styles.link}>
+                  <Link
+                    to='/cart'
+                    className={styles.link}
+                    onClick={handleMouseLeave}
+                  >
                     See All
                   </Link>
                 </div>

@@ -62,7 +62,11 @@ export const DropDownWishlist: React.FC = () => {
                   <p className={styles.titleHeader}>
                     Wishlist ({wishlistItemCount})
                   </p>
-                  <Link to='/wishlist' className={styles.link}>
+                  <Link
+                    to='/wishlist'
+                    className={styles.link}
+                    onClick={handleMouseLeave}
+                  >
                     See All
                   </Link>
                 </div>

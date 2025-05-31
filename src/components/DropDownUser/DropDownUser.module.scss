@@ -17,8 +17,8 @@
     right: 0;
     border-radius: rem-calc(4);
     padding: rem-calc(18) rem-calc(12) rem-calc(10) rem-calc(20);
-    opacity: 0;
-    visibility: hidden;
+    // opacity: 0;
+    // visibility: hidden;
     transform: translateY(-20px) scale(0.8);
     transition: opacity 0.3s ease, transform 0.3s ease;
     backdrop-filter: blur(50px);

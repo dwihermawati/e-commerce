@@ -82,19 +82,27 @@
           margin-bottom: rem-calc(24);
         }
       }
-      .action {
-        display: flex;
-        gap: clamp(0.5rem, 1.31vw, 1rem);
-        flex-wrap: wrap;
 
-        .wishlist {
-          width: rem-calc(40);
-          height: rem-calc(40);
-          border: 1px solid rgba(0, 0, 0, 0.5);
-          border-radius: rem-calc(4);
+      .actionAndImg {
+        .action {
           display: flex;
-          align-items: center;
-          justify-content: center;
+          gap: clamp(0.5rem, 1.31vw, 1rem);
+          flex-wrap: wrap;
+
+          .wishlist {
+            width: rem-calc(40);
+            height: rem-calc(40);
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            border-radius: rem-calc(4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+        .freeDeliveryImage {
+          max-width: rem-calc(320);
+          height: auto;
+          margin-top: rem-calc(16);
         }
       }
     }
@@ -102,12 +110,12 @@
   .relatedProducts {
     display: flex;
     flex-direction: column;
-    gap: rem-calc(60);
-    margin-top: rem-calc(80);
+    gap: clamp(1.88rem, 4.74vw, 3.75rem);
+    margin-top: clamp(3.75rem, 6.32vw, 5rem);
 
     .boxAndTag {
       display: flex;
-      gap: rem-calc(16);
+      gap: clamp(0.5rem, 1.26vw, 1rem);
       align-items: center;
       .box {
         width: rem-calc(20);
@@ -121,9 +129,9 @@
       }
     }
     .productsGrid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: rem-calc(30);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: clamp(0.75rem, 1.9vw, 1.5rem);
     }
   }
 }
